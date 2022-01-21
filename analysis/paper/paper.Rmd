@@ -1,8 +1,8 @@
 ---
 title: "Title Goes Here"
 author:
-  - Myfirstname Mylastname:
-      email: fl@oneplace.edu
+  - Quinn Habedank:
+      email: fl@oneoeurhg.edu
       institute: [UofO]
       correspondence: true
   - Yourfirstname Yourlastname:
