@@ -71,25 +71,30 @@ when other attributes show little variation. These results are important for und
 stone artefact assemblages from Southeast Asia which often yield little variation when
 analysed with traditional approaches.
 
-# Introduction
+## Introduction
+
 - Stone tools from South East Asia tend to lack distinctive typological categories (Mijares 2008; Borel et al. 2013; Borel et al. 2017)
 - The purpose of this study was to examine the relationship between flake shape and reduction intensity
 - Approach used in the paper is a response to the lack of traditional typological categories in South East Asia
 
 Here is a citation [@Marwick2017]
 
-# Background
+## Background
+
 - Mau A is an open air site located near the Red River in Yen Bai Province, Northern Vietnam.
 - Excavation conducted in 2015 as a part of a UW field school
 - A wide array of flakes and stone tools were recovered, n=1058
 - Data for the paper comes from caliper measurements of flakes from the 2015 excavation
-# Methods
+
+## Methods
+
 (Note, this is copied largely from the poster, and will require further editing -QH)
 -In order to gather the 1058 stone artefacts, excavations were conducted using hand tools and sieved 4 square meter plots of excavated sediment. 
 -A custom function was used to transform artefact measurements into outlines
 -PCA was conducted on the landmarks outlines
 -Reduction categories were based upon dorsal cortex percentage. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995)
-# Results
+
+## Results
 
 <!-- Here's some example analysis code: -->
 
@@ -120,7 +125,8 @@ Here is an example of inline code `r x` in the middle of a sentence.
 
 \newpage
 
-# References 
+## References 
+
 Borel, Antony, Richard Cornette, and Michel Baylac. 2017. “Stone Tool Forms and Functions: A Morphometric Analysis of Modern Humans’ Stone Tools From Song Terus Cave (Java, Indonesia).” Archaeometry 59 (3): 455–71. https://doi.org/10.1111/arcm.12264.
 
 Borel, Antony, Claire Gaillard, Marie-Hélène Moncel, Robert Sala, Emmanuelle Pouydebat, Truman Simanjuntak, and François Sémah. 2013. “How to Interpret Informal Flakes Assemblages? Integrating Morphological Description, Usewear and Morphometric Analysis Gave Better Understanding of the Behaviors of Anatomically Modern Human from Song Terus (Indonesia).” Journal of Anthropological Archaeology 32 (4): 630–46. https://doi.org/10.1016/j.jaa.2013.03.002.
@@ -128,6 +134,7 @@ Borel, Antony, Claire Gaillard, Marie-Hélène Moncel, Robert Sala, Emmanuelle P
 Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Approaches: An Experimental Assessment." Lithic Technology 20, no. 2 (1995): 100-15. Accessed June 11, 2021. http://www.jstor.org/stable/23273168.
 
 Mijares, A. 2008. “The late pleistocene to early holocene foragers of northern Luzon.”		Bulletin of the Indo-Pacific Prehistory Association 28: 99-107.
+
 <!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
 
 <div id="refs"></div>
