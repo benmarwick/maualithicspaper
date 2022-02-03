@@ -86,13 +86,14 @@ Here is a citation [@Marwick2017]
 - A wide array of flakes and stone tools were recovered, n=1058
 - Data for the paper comes from caliper measurements of flakes from the 2015 excavation
 <<<<<<< HEAD
-# Methods
 
-The data used for our analysis came from a 2015 dig at Mau A, located in Northern Vietnam, conducted by a University of Washington field school in conjunction with local archaeologists. Raw flake dimension measurements, such as max dimension length and width at various points along the max dimension length, were converted into shape outlines using an R script. 
 =======
 
 ## Methods
 >>>>>>> 0c961700dc5eaac7d34aa833a678b2897361aad4
+
+The data used for our analysis came from a 2015 dig at Mau A, located in Northern Vietnam, conducted by a University of Washington field school in conjunction with local archaeologists. Raw flake dimension measurements, such as max dimension length and width at various points along the max dimension length, were converted into shape landmarks values using an R script. The outlines formed by the shape landmarks were then normalized for size. Finally, the shape landmark values were passed through Primary Component Analysis in relation to 
+
 
 (Note, this is copied largely from the poster, and will require further editing -QH)
 -In order to gather the 1058 stone artefacts, excavations were conducted using hand tools and sieved 4 square meter plots of excavated sediment. 
