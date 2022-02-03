@@ -1,0 +1,158 @@
+---
+title: "Title Goes Here"
+author:
+  - Quinn Habedank:
+      email: fl@oneoeurhg.edu
+      institute: [UofO]
+      correspondence: true
+  - Ben Marwick:
+      email: fl@another.edu
+      institute: [UofA]
+      correspondence: false
+institute:
+  - UofO: University of One Place
+  - UofA: University of Another Place
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+    bookdown::word_document2:
+      fig_caption: yes
+      reference_docx: "../templates/template.docx" # Insert path for the DOCX file
+      pandoc_args:
+      - --lua-filter=../templates/scholarly-metadata.lua
+      - --lua-filter=../templates/author-info-blocks.lua
+      - --lua-filter=../templates/pagebreak.lua
+bibliography: references.bib
+csl: "../templates/journal-of-archaeological-science.csl" # Insert path for the bib-style
+abstract: |
+  Text of abstract
+keywords: |
+  keyword 1; keyword 2; keyword 3
+highlights: |
+  These are the highlights. 
+---
+
+<!-- This is the format for text comments that will be ignored during renderings. Do not put R code in these comments because it will not be ignored. -->
+
+<!-- With the following code you can access and display values from the yml header above. -->
+
+Keywords: `r rmarkdown::metadata$keywords`
+
+Highlights: `r rmarkdown::metadata$highlights`
+
+<!-- The following code chunk defines some general settings how code chunks should behave. -->
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  comment = "#>",
+  fig.path = "../figures/",
+  dpi = 300
+)
+```
+
+<!-- The actual document text starts here: -->
+
+# Abstract
+
+Flaked stone artefacts from Southeast Asia typically lack visually distinctive and strongly
+patterned forms, which can make them challenging to analyze and interpret. As a result,
+many of the cultural dynamics of Pleistocene hunter-gatherers of this region are poorly
+understood. We use 2D shape data to hypothesize a relationship between unretouched
+flake shape and assemblage reduction intensity at Mau A, an early Holocene archaeo-
+logical site in northern Vietnam. We apply a Principal Components Analysis to the flake
+outlines to investigate shape variation throughout the reduction sequence (measured
+by dorsal cortex coverage). We find that flake shape varies by reduction stage, primarily
+through differences in flake length and width. Our results suggest that flake shape is
+sensitive to assemblage reduction intensity, and may give useful comparative insights
+when other attributes show little variation. These results are important for understanding
+stone artefact assemblages from Southeast Asia which often yield little variation when
+analysed with traditional approaches.
+
+## Introduction
+
+- Stone tools from South East Asia tend to lack distinctive typological categories (Mijares 2008; Borel et al. 2013; Borel et al. 2017)
+- The purpose of this study was to examine the relationship between flake shape and reduction intensity
+- Approach used in the paper is a response to the lack of traditional typological categories in South East Asia
+
+Here is a citation [@Marwick2017]
+
+## Background
+
+- Mau A is an open air site located near the Red River in Yen Bai Province, Northern Vietnam.
+- Excavation conducted in 2015 as a part of a UW field school
+- A wide array of flakes and stone tools were recovered, n=1058
+- Data for the paper comes from caliper measurements of flakes from the 2015 excavation
+
+## Methods
+
+(Note, this is copied largely from the poster, and will require further editing -QH)
+-In order to gather the 1058 stone artefacts, excavations were conducted using hand tools and sieved 4 square meter plots of excavated sediment. 
+-A custom function was used to transform artefact measurements into outlines
+-PCA was conducted on the landmarks outlines
+-Reduction categories were based upon dorsal cortex percentage. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995)
+
+## Results
+
+<!-- Here's some example analysis code: -->
+
+```{r get-data, eval = FALSE}
+# Note the path that we need to use to access our data files when rendering this document
+my_data <- read.csv(here::here('analysis/data/raw_data/my_csv_file.csv'))
+```
+
+```{r demo-plot, fig.cap="A plot of random numbers"}
+plot(rnorm(10))
+```
+
+Figure \@ref(fig:demo-plot) shows how we can have a caption and cross-reference for a plot
+
+```{r demo-inline-code}
+x <- round(pi, 2)
+```
+
+Here is an example of inline code `r x` in the middle of a sentence. 
+
+# Discussion
+
+# Conclusion
+
+# Acknowledgements
+
+<!-- The following line inserts a page break  -->
+
+\newpage
+
+## References 
+
+Borel, Antony, Richard Cornette, and Michel Baylac. 2017. “Stone Tool Forms and Functions: A Morphometric Analysis of Modern Humans’ Stone Tools From Song Terus Cave (Java, Indonesia).” Archaeometry 59 (3): 455–71. https://doi.org/10.1111/arcm.12264.
+
+Borel, Antony, Claire Gaillard, Marie-Hélène Moncel, Robert Sala, Emmanuelle Pouydebat, Truman Simanjuntak, and François Sémah. 2013. “How to Interpret Informal Flakes Assemblages? Integrating Morphological Description, Usewear and Morphometric Analysis Gave Better Understanding of the Behaviors of Anatomically Modern Human from Song Terus (Indonesia).” Journal of Anthropological Archaeology 32 (4): 630–46. https://doi.org/10.1016/j.jaa.2013.03.002.
+
+Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Approaches: An Experimental Assessment." Lithic Technology 20, no. 2 (1995): 100-15. Accessed June 11, 2021. http://www.jstor.org/stable/23273168.
+
+Mijares, A. 2008. “The late pleistocene to early holocene foragers of northern Luzon.”		Bulletin of the Indo-Pacific Prehistory Association 28: 99-107.
+
+<!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
+
+<div id="refs"></div>
+
+\newpage
+
+### Colophon
+
+This report was generated on `r Sys.time()` using the following computational environment and dependencies: 
+
+```{r colophon, cache = FALSE}
+# which R packages and versions?
+if ("devtools" %in% installed.packages()) devtools::session_info()
+```
+
+The current Git commit details are:
+
+```{r}
+# what commit is this file at? 
+if ("git2r" %in% installed.packages() & git2r::in_repository(path = ".")) git2r::repository(here::here())  
+```
