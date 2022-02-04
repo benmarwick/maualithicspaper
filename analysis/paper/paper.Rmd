@@ -94,7 +94,7 @@ Here is a citation [@Marwick2017]
 
 The data used for our analysis came from a 2015 dig at Mau A, located in Northern Vietnam, conducted by a University of Washington field school in conjunction with local archaeologists. (Insert more info about dig methods here) 
 
-Raw flake dimension measurements, such as max dimension length and width at various points along the max dimension length, were converted into shape landmarks values using an R script (see X for supplementary material). The outlines formed by the shape landmarks were then normalized for size. Finally, the shape landmark values were passed through Primary Component Analysis. PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. 
+Raw flake dimension measurements, such as max dimension length and width at various points along the max dimension length, were converted into shape landmarks values using an R script (see X for supplementary material). The outlines formed by the shape landmarks were then normalized for size. Our methodology for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. Finally, the shape landmark values were passed through Primary Component Analysis. PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. 
 
 Reduction categories were based upon dorsal cortex percentage. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Artefacts collected from Mau A were separated into 13 excavation units, with 1 being the closest to the surface and 13 being the deepest. Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. 
 
@@ -140,6 +140,9 @@ Borel, Antony, Claire Gaillard, Marie-Hélène Moncel, Robert Sala, Emmanuelle P
 Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Approaches: An Experimental Assessment." Lithic Technology 20, no. 2 (1995): 100-15. Accessed June 11, 2021. http://www.jstor.org/stable/23273168.
 
 Mijares, A. 2008. “The late pleistocene to early holocene foragers of northern Luzon.”		Bulletin of the Indo-Pacific Prehistory Association 28: 99-107.
+
+Theska, T., Sieriebriennikov, B., Wighard, S. S., Werner, M. S., & Sommer, R. J. (2020). Geometric morphometrics of microscopic animals as exemplified by model nematodes. Nature Protocols, 15(8), 2611–2644. https://doi.org/10.1038/s41596-020-0347-z
+ 
 
 <!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
 
