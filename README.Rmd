@@ -16,7 +16,7 @@ Title <- "Title of your paper goes here"
 
 # maualithicspaper
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/benmarwick/maualithicspaper/master?urlpath=rstudio)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/benmarwick/maualithicspaper/master?urlpath=rstudio) [![.github/workflows/knit-in-docker.yml](https://github.com/benmarwick/maualithicspaper/actions/workflows/knit-in-docker.yml/badge.svg)](https://github.com/benmarwick/maualithicspaper/actions/workflows/knit-in-docker.yml)
 
 This repository contains the data and code for our paper:
 
