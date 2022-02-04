@@ -4,7 +4,7 @@ FROM rocker/verse:4.0.3
 # required
 MAINTAINER Ben Marwick <bmarwick@uw.edu>
 
-COPY . /
+COPY . /maualithicspaper
 
 # go into the repo directory
 RUN . /etc/environment \
