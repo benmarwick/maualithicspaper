@@ -92,15 +92,13 @@ Here is a citation [@Marwick2017]
 ## Methods
 >>>>>>> 0c961700dc5eaac7d34aa833a678b2897361aad4
 
-The data used for our analysis came from a 2015 dig at Mau A, located in Northern Vietnam, conducted by a University of Washington field school in conjunction with local archaeologists. Raw flake dimension measurements, such as max dimension length and width at various points along the max dimension length, were converted into shape landmarks values using an R script (see X for supplementary material). The outlines formed by the shape landmarks were then normalized for size. Finally, the shape landmark values were passed through Primary Component Analysis. PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. 
+The data used for our analysis came from a 2015 dig at Mau A, located in Northern Vietnam, conducted by a University of Washington field school in conjunction with local archaeologists. (Insert more info about dig methods here) 
 
-Reduction categories were based upon dorsal cortex percentage. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Artefacts collected from Mau A were separated into 13 excavation units, 
+Raw flake dimension measurements, such as max dimension length and width at various points along the max dimension length, were converted into shape landmarks values using an R script (see X for supplementary material). The outlines formed by the shape landmarks were then normalized for size. Finally, the shape landmark values were passed through Primary Component Analysis. PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. 
 
+Reduction categories were based upon dorsal cortex percentage. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Artefacts collected from Mau A were separated into 13 excavation units, with 1 being the closest to the surface and 13 being the deepest. Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. 
 
-
-
-(Note, this is copied largely from the poster, and will require further editing -QH)
--In order to gather the 1058 stone artefacts, excavations were conducted using hand tools and sieved 4 square meter plots of excavated sediment. 
+(QH here, I am not sure what else to write regarding the methods. I think the primary task here is to include references to where our code may be found as well as more information on the dig itself. I just want to avoid the issue of going over our entire thought process as opposed to what was directly done to produce our results)
 
 ## Results
 
