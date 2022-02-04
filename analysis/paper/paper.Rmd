@@ -1,5 +1,5 @@
 ---
-title: "Title Goes Here"
+title: "Late Pleistocene stone artefact technology at Mau A, Yen Bai, Norther Vietnam"
 author:
   - Quinn Habedank:
       email: fl@oneoeurhg.edu
@@ -57,19 +57,7 @@ knitr::opts_chunk$set(
 
 # Abstract
 
-Flaked stone artefacts from Southeast Asia typically lack visually distinctive and strongly
-patterned forms, which can make them challenging to analyze and interpret. As a result,
-many of the cultural dynamics of Pleistocene hunter-gatherers of this region are poorly
-understood. We use 2D shape data to hypothesize a relationship between unretouched
-flake shape and assemblage reduction intensity at Mau A, an early Holocene archaeo-
-logical site in northern Vietnam. We apply a Principal Components Analysis to the flake
-outlines to investigate shape variation throughout the reduction sequence (measured
-by dorsal cortex coverage). We find that flake shape varies by reduction stage, primarily
-through differences in flake length and width. Our results suggest that flake shape is
-sensitive to assemblage reduction intensity, and may give useful comparative insights
-when other attributes show little variation. These results are important for understanding
-stone artefact assemblages from Southeast Asia which often yield little variation when
-analysed with traditional approaches.
+Flaked stone artefacts from Southeast Asia typically lack visually distinctive and strongly patterned forms, which can make them challenging to analyze and interpret. As a result, many of the cultural dynamics of Pleistocene hunter-gatherers of this region are poorly understood. We use 2D shape data to hypothesize a relationship between unretouched flake shape and assemblage reduction intensity at Mau A, an early Holocene archaeological site in northern Vietnam. We apply a Principal Components Analysis to the flake outlines to investigate shape variation throughout the reduction sequence (measured by dorsal cortex coverage). We find that flake shape varies by reduction stage, primarily through differences in flake length and width. Our results suggest that flake shape is sensitive to assemblage reduction intensity, and may give useful comparative insights when other attributes show little variation. These results are important for understanding stone artefact assemblages from Southeast Asia which often yield little variation when analysed with traditional approaches.
 
 ## Introduction
 
@@ -79,32 +67,43 @@ analysed with traditional approaches.
 
 Here is a citation [@Marwick2017]
 
-## Background
+<!-- BM: In this section we need to review previous work on investigating flake shape and identifying what affects flake shape, not just in Southeast Asia, but anywhere in the world -->
 
-- Mau A is an open air site located near the Red River in Yen Bai Province, Northern Vietnam.
-- Excavation conducted in 2015 as a part of a UW field school
-- A wide array of flakes and stone tools were recovered, n=1058
-- Data for the paper comes from caliper measurements of flakes from the 2015 excavation
-<<<<<<< HEAD
+## Excavations at Mau A
 
-=======
+Mau A is an open air archaeological site located on the banks above 5 m above the Red River in Yen Bai Province, Northern Vietnam, at the confluence of a small stream entering the river. Excavations were conducted in 2015 by a collaboration including researchers from the University of Washington, the Yen Bai Provincial Museum, the Institute of Archaeology in Hanoi, and the Vietnam National University - Social Sciences and Humanities University. An area of 2 x 2 m was excavated in 13 units of ten centimeters deep, through dense silty clay deposits to a depth of about 1.3 m below the surface. Subtle changes in stratigraphy indicated a slightly sloping deposit with four layers, consistent with reports of excavations in this location in the 1980s. A small amount of plastic and modern ceramics were found in the uppermost 0.1 m of deposit. The most striking feature identified during our excavations was the third layer, which is distinctive as very dense layer of flaked stone artefacts at about 0.6-1.1 m below the surface. No other features were identified during excavation.
+
+This dense lithic layer contained the majority of stone artefacts recovered from the site. The  chaîne opératoire of Mau A lithic technology is composed of unifacial shaping on long cobbles to produce sumatraloids (sumatralith-like pieces). The chaîne opératoire also involved the shaping of thick ovoid cobbles for the production of choppers or chopping-tools and half-cobbles (longitudinally split) that are shaped into tools with transverse cutting edges. Flake scar surfaces and edges are fresh and unweathered, indicating _in situ_ production and limited post-depositional movement. While previous work has claimed the Mau A assemblage is Son Vian (a precurser to Hoabinhian technology, characterised by unifacial flaking of blocky, cubic cobbles)
+
+<!-- BM: need to cite The Oxford Handbook of the Archaeology and Anthropology of Hunter-Gatherers, Ha Van Tan 1997, and the Proceedings of the Prehistoric Society -->
+
+Four radiocarbon ages were obtained from isolated charcoal fragments in the deposit. The charcoal was sampled to bracket the upper and lower boundaries of the dense lithic layer. <!-- add calibrated age numbers here --> The ages indicate a rapid accumulation process for this layer at the terminal Pleistocene. 
+
+<!-- BM: add a paragraph on MH's pollen analysis to indicate local palaeoenvironment, and add her as co-author-->
+
 
 ## Methods
->>>>>>> 0c961700dc5eaac7d34aa833a678b2897361aad4
 
-The data used for our analysis came from a 2015 dig at Mau A, located in Northern Vietnam, conducted by a University of Washington field school in conjunction with local archaeologists. (Insert more info about dig methods here) 
+We initially recorded conventional linear dimension measurements, such as max dimension length and width at various points along the max dimension length, from all flakes recovered from the excavation. Then we converted these linear dimensions into landmarks points to represent the size and shape of each artefact. The specific linear measurements used to create the 2D landmarks were the top horizontal measurement, the max dimension length, width at a quarter of the maximum length, width at half of the maximum length, and width at three quarters of the maximum length.
 
-Raw flake dimension measurements, such as max dimension length and width at various points along the max dimension length, were converted into shape landmarks values using an R script (see X for repo containing R code). The specific measurements used to create the 2D landmarks were the top horizontal measurement, the max dimension length, width at a quarter of the maximum length, width at half of the maximum length, and width at three quarters of the maximum length.
+<!-- BM: Because our approach here is very novel, most readers will struggle to understand it. To help them, I think we will need a table that defines each of our dimensions, and a figure that shows an example of our landmark points on a typical artefact -->
 
-The outlines formed by the shape landmarks were then normalized for size, orientation, and rotation. We used Generalized Procrustes analysis to strip the flakes in the sample dataset of size, orientation, and rotation, leaving only ‘pure’ shape data.  Our methodology for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. Finally, the shape landmark values were passed through Primary Component Analysis. PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. The first two primary components were then used to create biplots comparing the shape data to the flake reduction categories, excavation unit, and mass clusters, with the secondary variables being represented by colored outlines on the biplots. 
+The outlines formed by the shape landmarks were then normalized for size, orientation, and rotation. We used Generalized Procrustes analysis to strip the flakes in the sample dataset of size, orientation, and rotation, leaving only shape data.  Our methodology for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. Finally, the shape landmark values were analysed by Principal Components Analysis. PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. The first two primary components were then used to create biplots comparing the shape data to the flake reduction categories, excavation unit, and mass clusters, with the secondary variables being represented by colored outlines on the biplots. 
 
-Reduction categories were based upon dorsal cortex percentages were discretized based upon standard cut points. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Artefacts collected from Mau A were separated into 13 excavation units, with 1 being the closest to the surface and 13 being the deepest. Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. 
+<!-- BM: Need to add citations to give the reader further information on GPA and shape analysis in archaeology. Need to add a sentence of definitino of what is GPA and what is PCA. Partly to guide the reader to more details, if they want it, and partly to demonstrate our expertise with the method -->
 
-(QH here, I am not sure what else to write regarding the methods. I think the primary task here is to include references to where our code may be found as well as more information on the dig itself. I just want to avoid the issue of going over our entire thought process as opposed to what was directly done to produce our results)
+Reduction categories were based upon dorsal cortex percentages were discretized based upon standard cut points. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. 
+
+<!-- BM: Need to add citations and definition about univariate k-means -->
 
 ## Results
-(QH, insert the code we use to create data visualizations here)
-<!-- Here's some example analysis code: -->
+
+<!-- BM: basic stats on raw materials and change in technology by depth to satisfy readers about the basic details of the assemblage, 
+
+<!-- BM: then QH's more complex analysis on flakes after the basic data -->
+
+<!-- BM: then previous more complex analysis on cores after QH's analysis of flakes -->
+
 
 ```{r get-data, eval = FALSE}
 # Note the path that we need to use to access our data files when rendering this document
