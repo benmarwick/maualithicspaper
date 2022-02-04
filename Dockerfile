@@ -4,14 +4,14 @@ FROM rocker/verse:4.0.3
 # required
 MAINTAINER Ben Marwick <bmarwick@uw.edu>
 
-COPY . /maualithicspaper
+COPY . /
 
 # go into the repo directory
 RUN . /etc/environment \
   && sudo apt-get update \
   && sudo apt-get install libudunits2-dev -y \
   # build this compendium package
-  && R -e "devtools::install('/maualithicspaper', dep=TRUE)" \
+  && R -e "devtools::install('/', dep=TRUE)" \
   # render the manuscript into a docx, you'll need to edit this if you've
   # customised the location and name of your main Rmd file
   # render the manuscript into a docx
