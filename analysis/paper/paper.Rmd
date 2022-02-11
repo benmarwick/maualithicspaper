@@ -112,7 +112,7 @@ Reduction categories were based upon dorsal cortex percentages were discretized 
 library(tidyverse)
 
 # import the data
-ma_flakes <- readxl::read_excel(here::here("data/UW Fieldschool Mau A 2015 post_excavation_season_April_2016.xlsx"),
+ma_flakes <- readxl::read_excel(here::here("analysis/data/raw_data/UW Fieldschool Mau A 2015 post_excavation_season_April_2016.xlsx"),
                                 col_names = FALSE)
 
 # transpose so that columns are variables, rows are individual artefacts
@@ -133,7 +133,7 @@ ma_flakes %>%
 
 # export this data frame to use with our analysis
 write_csv(ma_flakes_tr,
-          here::here("data/ma_flakes_tr.csv"))
+          here::here("analysis/data/derived_data/ma_flakes_tr.csv"))
 
 ```
 
@@ -144,13 +144,13 @@ write_csv(ma_flakes_tr,
 library(tidyverse)
 
 # import
-ma_flakes_tr <- read_csv(here::here("data/ma_flakes_tr.csv"))
+ma_flakes_tr <- read_csv(here::here("analysis/data/derived_data/ma_flakes_tr.csv"))
 
 # custom function is from here, we have a local version in 999-functions.R
 # so we can work offline if we need to
 # https://gist.github.com/benmarwick/fac5754131c1fcc14d32b1658215f0e3
 
-source(here::here("code/999-functions.R"))
+source(here::here("analysis/code/999-functions.R"))
 
 polys <- polygon_shape_by_variables(data = ma_flakes_tr,       # our data frame
                                     x = 'width_at_0.50_length',                # col for coord for x-axis of poly centers
@@ -175,7 +175,7 @@ polys %>%
 
 # export as TPS file
 create_tps(polys_lmk,
-           here::here("data/landmarks.tps"))
+           here::here("analysis/data/derived_data/landmarks.tps"))
 
 ```
 
@@ -187,7 +187,7 @@ library(Ckmeans.1d.dp)
 
 test_result_dorsal_cortex <- Ckmeans.1d.dp(ma_flakes_tr$dorsal_cortex_perc)
 
-plot(test_result_dorsal_cortex)
+# plot(test_result_dorsal_cortex)
 
 # It seems that there is no clear clustering in the Dorsal Cortex values. I will have to use values from the literature to divide the cortex values
 
@@ -228,23 +228,6 @@ ggplot(ma_flakes_tr_with_groups)  +
 
 ```
 
-
-```{r get-data, eval = FALSE}
-# Note the path that we need to use to access our data files when rendering this document
-my_data <- read.csv(here::here('analysis/data/raw_data/my_csv_file.csv'))
-```
-
-```{r demo-plot, fig.cap="A plot of random numbers"}
-plot(rnorm(10))
-```
-
-Figure \@ref(fig:demo-plot) shows how we can have a caption and cross-reference for a plot
-
-```{r demo-inline-code}
-x <- round(pi, 2)
-```
-
-Here is an example of inline code `r x` in the middle of a sentence. 
 
 # Discussion
 
