@@ -104,6 +104,38 @@ Reduction categories were based upon dorsal cortex percentages were discretized 
 
 <!-- BM: then previous more complex analysis on cores after QH's analysis of flakes -->
 
+<!--(10 Feb 2022) QH: Just putting all of the code and writing here. Not going to worry about formatting for now -->
+```{r}
+library(tidyverse)
+
+# import the data
+ma_flakes <- readxl::read_excel(here::here("data/UW Fieldschool Mau A 2015 post_excavation_season_April_2016.xlsx"),
+                                col_names = FALSE)
+
+# transpose so that columns are variables, rows are individual artefacts
+# and set col data types so we can compute on them
+ma_flakes_tr <-
+ma_flakes %>%
+  pivot_longer(-`...1`)  %>%
+  pivot_wider(names_from = `...1`,
+              values_from = value) %>%
+  mutate_all(parse_guess) %>%
+  # fix a few bad guesses
+  mutate(across(c(mass,
+                thickness_at_0.25_width,
+                thickness_at_0.75_width,
+                dorsal_cortex_perc,
+                dorsal_scar_initiation_count),
+         parse_number))
+
+# export this data frame to use with our analysis
+write_csv(ma_flakes_tr,
+          here::here("data/ma_flakes_tr.csv"))
+
+```
+
+
+
 
 ```{r get-data, eval = FALSE}
 # Note the path that we need to use to access our data files when rendering this document
