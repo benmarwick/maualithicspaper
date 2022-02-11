@@ -105,6 +105,9 @@ Reduction categories were based upon dorsal cortex percentages were discretized 
 <!-- BM: then previous more complex analysis on cores after QH's analysis of flakes -->
 
 <!--(10 Feb 2022) QH: Just putting all of the code and writing here. Not going to worry about formatting for now -->
+<!--(10 Feb 2022) QH: On a secondary note, I managed to cause an error with docker in record time. We will need to fix that later-->
+<!--(10 Feb 2022) QH: Lastly, I'm going to do my best to get the code working tonight. If that fails, I will still write up my interpretation using prior images of the visualization-->
+
 ```{r}
 library(tidyverse)
 
@@ -133,8 +136,84 @@ write_csv(ma_flakes_tr,
           here::here("data/ma_flakes_tr.csv"))
 
 ```
+```{r}
+# here we import the CSV file of caliper measurements, then compute on the
+# measurements to generate coordinates for a shape outline
+
+library(tidyverse)
+
+# import
+ma_flakes_tr <- read_csv(here::here("data/ma_flakes_tr.csv"))
+
+# custom function is from here, we have a local version in 999-functions.R
+# so we can work offline if we need to
+# https://gist.github.com/benmarwick/fac5754131c1fcc14d32b1658215f0e3
+
+source(here::here("code/999-functions.R"))
+
+polys <- polygon_shape_by_variables(data = ma_flakes_tr,       # our data frame
+                                    x = 'width_at_0.50_length',                # col for coord for x-axis of poly centers
+                                    y = 'max_dimension',       # col for coord for y-axis of poly centers
+
+                                    sf = 10,    # scale factor
+                                    top_horizontal_measurement =    'platform_width', # cols to use to compute poly verts
+                                    main_vertical_measurement =     'percussion_length',
+                                    upper_horizontal_measurement =  'width_at_0.25_length',
+                                    middle_horizontal_measurement = 'width_at_0.50_length',
+                                    bottom_horizontal_measurement = 'width_at_0.75_length')
+
+# take a look to ensure we are on the right track
+p <- ggplot() +
+  geom_polygon(data=polys,
+               aes(x=x,
+                   y=y,
+                   group = fill),
+               colour="black",
+               alpha = 0.5) +
+  coord_equal() +
+  theme_bw()
+p
+
+# make ready to convert to TPS format (thin plate spline)
+polys_lmk <-
+polys %>%
+  group_by(fill) %>%
+  mutate(landmark.number = row_number(fill),
+         specimen.ids  = fill) %>%
+  ungroup() %>%
+  select(-fill)
+
+# export as TPS file
+create_tps(polys_lmk,
+           here::here("data/landmarks.tps"))
+
+```
+```{r}
+ma_flakes_tr_with_groups <-
+  ma_flakes_tr %>%
+  mutate(dorsal_cortext_group = as.factor(
+           case_when(
+             between(dorsal_cortex_perc, 0, 0) ~ "Tertiary",
+             between(dorsal_cortex_perc, 1, 50) ~ "Secondary",
+             between(dorsal_cortex_perc, 51, 100) ~ "Primary"
+           ))) %>% 
+ mutate(mass_group = as.factor(test_result_mass$cluster))
+# plot mass groups
+ggplot(ma_flakes_tr_with_groups)  +
+  aes(mass,
+      fill = mass_group) +
+  geom_histogram() +
+  scale_fill_viridis_d(name = "Mass\ncluster") +
+  xlab("Mass (g)") +
+  theme_minimal(base_size = 14) +
+  theme(panel.background = element_rect(fill='white',
+                                        colour = "white"),
+        plot.background = element_rect(fill='white',
+                                       colour = "white"))
 
 
+
+```
 
 
 ```{r get-data, eval = FALSE}
