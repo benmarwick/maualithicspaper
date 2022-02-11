@@ -136,6 +136,7 @@ write_csv(ma_flakes_tr,
           here::here("data/ma_flakes_tr.csv"))
 
 ```
+
 ```{r}
 # here we import the CSV file of caliper measurements, then compute on the
 # measurements to generate coordinates for a shape outline
@@ -162,17 +163,6 @@ polys <- polygon_shape_by_variables(data = ma_flakes_tr,       # our data frame
                                     middle_horizontal_measurement = 'width_at_0.50_length',
                                     bottom_horizontal_measurement = 'width_at_0.75_length')
 
-# take a look to ensure we are on the right track
-p <- ggplot() +
-  geom_polygon(data=polys,
-               aes(x=x,
-                   y=y,
-                   group = fill),
-               colour="black",
-               alpha = 0.5) +
-  coord_equal() +
-  theme_bw()
-p
 
 # make ready to convert to TPS format (thin plate spline)
 polys_lmk <-
@@ -188,6 +178,9 @@ create_tps(polys_lmk,
            here::here("data/landmarks.tps"))
 
 ```
+
+
+<!--(11 Feb 2022) QH: Currently it is 1:20 AM. I have been fiddling about with code and github for awhile. I plan on fixing everything when I wake up, and, failing that, Friday afternoon.-->
 ```{r}
 ma_flakes_tr_with_groups <-
   ma_flakes_tr %>%
@@ -196,8 +189,8 @@ ma_flakes_tr_with_groups <-
              between(dorsal_cortex_perc, 0, 0) ~ "Tertiary",
              between(dorsal_cortex_perc, 1, 50) ~ "Secondary",
              between(dorsal_cortex_perc, 51, 100) ~ "Primary"
-           ))) %>% 
- mutate(mass_group = as.factor(test_result_mass$cluster))
+           ))) #%>% 
+ #QH here, not sure what this is doing for now, just putting it off to the side: mutate(mass_group = as.factor(test_result_mass$cluster))
 # plot mass groups
 ggplot(ma_flakes_tr_with_groups)  +
   aes(mass,
