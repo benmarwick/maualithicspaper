@@ -104,9 +104,9 @@ Reduction categories were based upon dorsal cortex percentages were discretized 
 
 <!-- BM: then previous more complex analysis on cores after QH's analysis of flakes -->
 
-<!--(10 Feb 2022) QH: Just putting all of the code and writing here. Not going to worry about formatting for now -->
-<!--(10 Feb 2022) QH: On a secondary note, I managed to cause an error with docker in record time. We will need to fix that later-->
-<!--(10 Feb 2022) QH: Lastly, I'm going to do my best to get the code working tonight. If that fails, I will still write up my interpretation using prior images of the visualization-->
+<!--QH: Just putting all of the code and writing here. Not going to worry about formatting for now -->
+<!--QH: On a secondary note, I managed to cause an error with docker in record time. We will need to fix that later-->
+<!--QH: Lastly, I'm going to do my best to get the code working tonight. If that fails, I will still write up my interpretation using prior images of the visualization-->
 
 ```{r}
 library(tidyverse)
@@ -180,7 +180,7 @@ create_tps(polys_lmk,
 ```
 
 
-<!--(11 Feb 2022) QH: Currently it is 1:20 AM. I have been fiddling about with code and github for awhile. I plan on fixing everything when I wake up, and, failing that, Friday afternoon.-->
+<!--QH: I have been fiddling about with code and github for awhile. I plan on fixing everything when I wake up, and, failing that, Friday afternoon.-->
 ```{r}
 ma_flakes_tr_with_groups <-
   ma_flakes_tr %>%
@@ -189,8 +189,8 @@ ma_flakes_tr_with_groups <-
              between(dorsal_cortex_perc, 0, 0) ~ "Tertiary",
              between(dorsal_cortex_perc, 1, 50) ~ "Secondary",
              between(dorsal_cortex_perc, 51, 100) ~ "Primary"
-           ))) #%>% 
- #QH here, not sure what this is doing for now, just putting it off to the side: mutate(mass_group = as.factor(test_result_mass$cluster))
+           ))) %>% 
+ mutate(mass_group = as.factor(test_result_mass$cluster))
 # plot mass groups
 ggplot(ma_flakes_tr_with_groups)  +
   aes(mass,
