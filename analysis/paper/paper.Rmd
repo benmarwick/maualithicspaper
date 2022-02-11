@@ -181,6 +181,25 @@ create_tps(polys_lmk,
 
 
 <!--QH: I have been fiddling about with code and github for awhile. I plan on fixing everything when I wake up, and, failing that, Friday afternoon.-->
+
+```{r}
+library(Ckmeans.1d.dp)
+
+test_result_dorsal_cortex <- Ckmeans.1d.dp(ma_flakes_tr$dorsal_cortex_perc)
+
+plot(test_result_dorsal_cortex)
+
+# It seems that there is no clear clustering in the Dorsal Cortex values. I will have to use values from the literature to divide the cortex values
+
+# try mass:
+test_result_mass <- Ckmeans.1d.dp(ma_flakes_tr$mass)
+
+# plot(test_result_mass)
+# we got six clusters
+```
+
+
+
 ```{r}
 ma_flakes_tr_with_groups <-
   ma_flakes_tr %>%
@@ -191,6 +210,7 @@ ma_flakes_tr_with_groups <-
              between(dorsal_cortex_perc, 51, 100) ~ "Primary"
            ))) %>% 
  mutate(mass_group = as.factor(test_result_mass$cluster))
+
 # plot mass groups
 ggplot(ma_flakes_tr_with_groups)  +
   aes(mass,
