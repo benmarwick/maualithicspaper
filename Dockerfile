@@ -4,11 +4,12 @@ FROM rocker/verse:4.0.3
 # required
 MAINTAINER Ben Marwick <bmarwick@uw.edu>
 
+WORKDIR /maualithicspaper
 COPY . /maualithicspaper
 
 # go into the repo directory
 RUN . /etc/environment \
-  RUN  R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" \
+  && R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" \
   && R -e "remotes::install_github('rstudio/renv')" \
   # install pkgs we need
   && R -e "renv::restore()" \
