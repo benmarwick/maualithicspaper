@@ -16,4 +16,4 @@ RUN . /etc/environment \
   # render the manuscript into a docx, you'll need to edit this if you've
   # customised the location and name of your main Rmd file
   # render the manuscript into a docx
-  && R -e "rmarkdown::render('maualithicspaper/analysis/paper/paper.Rmd')"
+  && R -e "rmarkdown::render('analysis/paper/paper.Rmd')"
