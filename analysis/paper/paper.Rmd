@@ -104,9 +104,9 @@ Reduction categories were based upon dorsal cortex percentages were discretized 
 
 <!-- BM: then previous more complex analysis on cores after QH's analysis of flakes -->
 
-<!--QH: Just putting all of the code and writing here. Not going to worry about formatting for now -->
-<!--QH: On a secondary note, I managed to cause an error with docker in record time. We will need to fix that later-->
-<!--QH: Lastly, I'm going to do my best to get the code working tonight. If that fails, I will still write up my interpretation using prior images of the visualization-->
+
+
+## PCA Analysis on Dorsal Cortex Groups
 
 ```{r}
 library(tidyverse)
@@ -178,55 +178,69 @@ create_tps(polys_lmk,
            here::here("analysis/data/derived_data/landmarks.tps"))
 
 ```
-
-
-<!--QH: I have been fiddling about with code and github for awhile. I plan on fixing everything when I wake up, and, failing that, Friday afternoon.-->
-
 ```{r}
-library(Ckmeans.1d.dp)
 
-test_result_dorsal_cortex <- Ckmeans.1d.dp(ma_flakes_tr$dorsal_cortex_perc)
+library(tidyverse)
+library(geomorph)
+library(Morpho)
+library(mclust)
+library(cluster)
+library(factoextra)
 
-# plot(test_result_dorsal_cortex)
+lands <- readland.tps(
+  here::here("data/derived_data/landmarks.tps"),
+  specID = "ID")
 
-# It seems that there is no clear clustering in the Dorsal Cortex values. I will have to use values from the literature to divide the cortex values
+# drop outliers  identified in the previous script
+outlier_ids <- c(1152,  606, 1147, 1125,  756 ,1023,  457,
+                 813,  415,  877,  677, 1055,  239,  811,  601,  861,
+                  794,  103 , 598 ,1110 , 906 ,  59 ,   4)
 
-# try mass:
-test_result_mass <- Ckmeans.1d.dp(ma_flakes_tr$mass)
+lands_no_outliers <- lands[, , -outlier_ids]
+lands_no_outliers_names <- dimnames(lands_no_outliers)[[3]]
 
-# plot(test_result_mass)
-# we got six clusters
-```
+sup.geo <- gpagen(lands_no_outliers,  ProcD=F, Proj = T)
 
+# Principal component analysis (PCA) using a base R function
+pca.geo <- prcomp(two.d.array(sup.geo$coord))
 
+# TODO: find a meaningful way to break this up into groups
+# pass these groups onto the PCA for drawing ellipses
 
-```{r}
+# this block of code below shows one way to discretize cortex percentage
+# into three groups. We need to explore other cutoffs, and other grouping
+# variables besides dorsal cortex. This code below is a good template for
+# starting these explorations
 ma_flakes_tr_with_groups <-
   ma_flakes_tr %>%
-  mutate(dorsal_cortext_group = as.factor(
+  slice(-outlier_ids) %>%
+  mutate(dorsal_cortext_group =
            case_when(
              between(dorsal_cortex_perc, 0, 0) ~ "Tertiary",
-             between(dorsal_cortex_perc, 1, 50) ~ "Secondary",
-             between(dorsal_cortex_perc, 51, 100) ~ "Primary"
-           ))) %>% 
- mutate(mass_group = as.factor(test_result_mass$cluster))
+             between(dorsal_cortex_perc, 11, 60) ~ "Secondary",
+             between(dorsal_cortex_perc, 61, 100) ~ "Primary"
+           ))
 
-# plot mass groups
-ggplot(ma_flakes_tr_with_groups)  +
-  aes(mass,
-      fill = mass_group) +
-  geom_histogram() +
-  scale_fill_viridis_d(name = "Mass\ncluster") +
-  xlab("Mass (g)") +
-  theme_minimal(base_size = 14) +
-  theme(panel.background = element_rect(fill='white',
-                                        colour = "white"),
-        plot.background = element_rect(fill='white',
-                                       colour = "white"))
+# ggplot2-based plot of the PCA results using a factoextra function
+fviz_pca_ind(pca.geo,
+             geom.ind = "point", # show points without labels
+            #  line below sets the grouping column for colouring the points
+             habillage = ma_flakes_tr_with_groups$dorsal_cortext_group,
+             palette = "npg", #color palette, adjust to preferences
+             addEllipses = T, #adds ellipses or convex hulls
+             ellipse.type = "convex", #convex hulls
+             mean.point = F, #don’t show average point
+             legend.title = "SP") +  #adjust accordingly)
+             coord_fixed(ratio = 1) #adjustable for variation-weighted plots
+
+
+
+
 
 
 
 ```
+
 
 
 # Discussion
