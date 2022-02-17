@@ -244,7 +244,7 @@ fviz_pca_ind(pca.geo,
 
   The PCA biplot above shows flake shape (as defined within the first two primary dimensions) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slighly larger range of shape variation. Lastly, the heavily worked tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
 
-  It should also be noted that shape variation is not equal along both primary dimensions. 
+  It should also be noted that shape variation is not equal along both primary dimensions. For flakes in all three dorsal cortex classes, the largest differences between each inter-nested is along the first primary dimension. Slight differences are seen along the second primary dimension, with an increasing amount of variation as one goes from primary to secondary to tertiary flakes, but these changes are minor when compared to the larger changes seen in the first primary dimension. 
 # Discussion
 
 # Conclusion
