@@ -230,7 +230,7 @@ fviz_pca_ind(pca.geo,
              addEllipses = T, #adds ellipses or convex hulls
              ellipse.type = "convex", #convex hulls
              mean.point = F, #don’t show average point
-             legend.title = "SP") +  #adjust accordingly)
+             legend.title = "Dorsal Cortex Class") +  #adjust accordingly)
              coord_fixed(ratio = 1) #adjustable for variation-weighted plots
 
 
@@ -240,9 +240,11 @@ fviz_pca_ind(pca.geo,
 
 
 ```
+<!-- QH: Later on, the language "the visualization above" will be changed to "Figure X." -->
 
+  The PCA biplot above shows flake shape (as defined within the first two primary dimensions) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slighly larger range of shape variation. Lastly, the heavily worked tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
 
-
+  It should also be noted that shape variation is not equal along both primary dimensions. 
 # Discussion
 
 # Conclusion
