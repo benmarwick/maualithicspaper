@@ -241,10 +241,61 @@ fviz_pca_ind(pca.geo,
 
 ```
 <!-- QH: Later on, the language "the visualization above" will be changed to "Figure X." -->
+<!-- QH: Also, on a secondary note, I had to copy the data file into a different location. That means that there are redundant data files that will need to be cleaned up later -->
 
   The PCA biplot above shows flake shape (as defined within the first two primary dimensions) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slighly larger range of shape variation. Lastly, the heavily worked tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
 
   It should also be noted that shape variation is not equal along both primary dimensions. For flakes in all three dorsal cortex classes, the largest differences between each inter-nested is along the first primary dimension. Slight differences are seen along the second primary dimension, with an increasing amount of variation as one goes from primary to secondary to tertiary flakes, but these changes are minor when compared to the larger changes seen in the first primary dimension. 
+  
+
+<!-- QH: This code chunk below I copied from the old repo. The visualizations on dimension contributions are relevant to my second paragraph. I need to go back to some of my old work to see which values pertain to which measurement on the flakes, and to write up a paragraph or two elaborating on what I have already said. -->
+
+```{r}
+# let's look at all the PCs and how much each original # variable contributes to them
+
+#view how much variation is described by each PC (ordered from PC1 to last PC)
+enframe(100*pca.geo$sdev^2/sum(pca.geo$sdev^2))
+
+#get meaningful PCs
+getMeaningfulPCs(pca.geo$sdev^2, n = length(lands_no_outliers_names))
+
+#estimate contribution (%) of landmarks on PC1
+PC1_contrib <- fviz_contrib(pca.geo, choice = "var", axes = 1)
+# take a look at the plot
+PC1_contrib
+
+LM_contrib_PC1 <- data.frame(LM = rep(NA, nrow(PC1_contrib$data)/2),
+                             PC1_contrib = rep(NA, nrow(PC1_contrib$data)/2))
+for (i in 1:(nrow(PC1_contrib$data)/2)) {
+  LM_contrib_PC1$PC1_contrib[i] <- sum(PC1_contrib$data[(i*2-1):(i*2),]$contrib)
+  LM_contrib_PC1$LM[i] <- as.character(i)
+}
+
+# TODO: decode the x-axis labels on the scree plot so we can describe in
+# terms of actual flake dimension, write some sentences to describe and interpret
+
+# estimate contribution (%) of landmarks on PC2
+PC2_contrib <- fviz_contrib(pca.geo, choice = "var", axes = 2)
+# take a look at the plot
+PC2_contrib
+
+LM_contrib_PC2 <- data.frame(LM = rep(NA, nrow(PC2_contrib$data)/2),
+                             PC2_contrib = rep(NA, nrow(PC2_contrib$data)/2))
+for (i in 1:(nrow(PC2_contrib$data)/2)) {
+  LM_contrib_PC2$PC2_contrib[i] <- sum(PC2_contrib$data[(i*2-1):(i*2),]$contrib)
+  LM_contrib_PC2$LM[i] <- as.character(i)
+}
+
+# examine landmarks with major contribution (%) to PC1 and PC2
+important_LMs_PC1 <- LM_contrib_PC1[LM_contrib_PC1$PC1_contrib > 100/(nrow(PC1_contrib$data)/2),]
+important_LMs_PC1[order(decreasing = T, important_LMs_PC1$PC1_contrib),]
+important_LMs_PC2 <- LM_contrib_PC2[LM_contrib_PC2$PC2_contrib > 100/(nrow(PC2_contrib$data)/2),]
+# here is a table that summarises the most important landmarks in the PCA
+important_LMs_PC2[order(decreasing = T, important_LMs_PC2$PC2_contrib),]
+
+
+```
+  
 # Discussion
 
 # Conclusion
