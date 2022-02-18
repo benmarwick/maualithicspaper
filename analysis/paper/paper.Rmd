@@ -84,19 +84,20 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 
 ## Methods
 
-We initially recorded conventional linear dimension measurements, such as max dimension length and width at various points along the max dimension length, from all flakes recovered from the excavation. Then we converted these linear dimensions into landmarks points to represent the size and shape of each artefact. The specific linear measurements used to create the 2D landmarks were the top horizontal measurement, the max dimension length, width at a quarter of the maximum length, width at half of the maximum length, and width at three quarters of the maximum length.
+  We initially recorded conventional linear dimension measurements, such as max dimension length and width at various points along the max dimension length, from all flakes recovered from the excavation. Then we converted these linear dimensions into landmarks points to represent the size and shape of each artefact. The specific linear measurements used to create the 2D landmarks were the top horizontal measurement, the max dimension length, width at a quarter of the maximum length, width at half of the maximum length, and width at three quarters of the maximum length.
 
 <!-- BM: Because our approach here is very novel, most readers will struggle to understand it. To help them, I think we will need a table that defines each of our dimensions, and a figure that shows an example of our landmark points on a typical artefact -->
 
-The outlines formed by the shape landmarks were then normalized for size, orientation, and rotation. We used Generalized Procrustes Analysis to strip the flakes in the sample dataset of size, orientation, and rotation, leaving only shape data. Generalized Procrustes Analysis (or GPA) is a
+  The outlines formed by the shape landmarks were then normalized for size, orientation, and rotation. We used Generalized Procrustes Analysis to strip the flakes in the sample dataset of size, orientation, and rotation, leaving only shape data. Generalized Procrustes Analysis (or GPA) is a statistical tool for taking shapes on a 2D plane and normalizing them so as to only examine the absolute shape of a set of landmarks. For an example of GPA being utilized to examine 2D landmarks in an archaeological context, refer to Jung & Woo (2019).
 
-Jung & Woo (2019)
-
-Our methodology for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. Finally, the shape landmark values were analysed by Principal Components Analysis. PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. The first two primary components were then used to create biplots comparing the shape data to the flake reduction categories, excavation unit, and mass clusters, with the secondary variables being represented by colored outlines on the biplots. 
+  Finally, the shape landmark values were analysed by Principal Components Analysis, a form of exploratory data analysis. Our methodology for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. PCA
+  
+  
+  PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. The first two primary components were then used to create biplots comparing the shape data to the flake reduction categories, excavation unit, and mass clusters, with the secondary variables being represented by colored outlines on the biplots. 
 
 <!-- BM: Need to add citations to give the reader further information on GPA and shape analysis in archaeology. Need to add a sentence of definitino of what is GPA and what is PCA. Partly to guide the reader to more details, if they want it, and partly to demonstrate our expertise with the method -->
 
-Reduction categories were based upon dorsal cortex percentages were discretized based upon standard cut points. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. 
+  Reduction categories were based upon dorsal cortex percentages were discretized based upon standard cut points. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. 
 
 <!-- BM: Need to add citations and definition about univariate k-means -->
 
