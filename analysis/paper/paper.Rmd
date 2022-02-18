@@ -182,6 +182,8 @@ create_tps(polys_lmk,
            here::here("analysis/data/derived_data/landmarks.tps"))
 
 ```
+
+
 ```{r}
 
 library(tidyverse)
@@ -192,7 +194,7 @@ library(cluster)
 library(factoextra)
 
 lands <- readland.tps(
-  here::here("data/derived_data/landmarks.tps"),
+  here::here("analysis/data/derived_data/landmarks.tps"),
   specID = "ID")
 
 # drop outliers  identified in the previous script
@@ -244,6 +246,7 @@ fviz_pca_ind(pca.geo,
 
 
 ```
+
 <!-- QH: Later on, the language "the visualization above" will be changed to "Figure X." -->
 <!-- QH: Also, on a secondary note, I had to copy the data file into a different location. That means that there are redundant data files that will need to be cleaned up later -->
 
