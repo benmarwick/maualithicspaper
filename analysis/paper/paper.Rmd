@@ -88,7 +88,11 @@ We initially recorded conventional linear dimension measurements, such as max di
 
 <!-- BM: Because our approach here is very novel, most readers will struggle to understand it. To help them, I think we will need a table that defines each of our dimensions, and a figure that shows an example of our landmark points on a typical artefact -->
 
-The outlines formed by the shape landmarks were then normalized for size, orientation, and rotation. We used Generalized Procrustes analysis to strip the flakes in the sample dataset of size, orientation, and rotation, leaving only shape data.  Our methodology for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. Finally, the shape landmark values were analysed by Principal Components Analysis. PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. The first two primary components were then used to create biplots comparing the shape data to the flake reduction categories, excavation unit, and mass clusters, with the secondary variables being represented by colored outlines on the biplots. 
+The outlines formed by the shape landmarks were then normalized for size, orientation, and rotation. We used Generalized Procrustes Analysis to strip the flakes in the sample dataset of size, orientation, and rotation, leaving only shape data. Generalized Procrustes Analysis (or GPA) is a
+
+Jung & Woo (2019)
+
+Our methodology for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. Finally, the shape landmark values were analysed by Principal Components Analysis. PCA biplots were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. The first two primary components were then used to create biplots comparing the shape data to the flake reduction categories, excavation unit, and mass clusters, with the secondary variables being represented by colored outlines on the biplots. 
 
 <!-- BM: Need to add citations to give the reader further information on GPA and shape analysis in archaeology. Need to add a sentence of definitino of what is GPA and what is PCA. Partly to guide the reader to more details, if they want it, and partly to demonstrate our expertise with the method -->
 
@@ -313,6 +317,9 @@ Borel, Antony, Richard Cornette, and Michel Baylac. 2017. “Stone Tool Forms an
 Borel, Antony, Claire Gaillard, Marie-Hélène Moncel, Robert Sala, Emmanuelle Pouydebat, Truman Simanjuntak, and François Sémah. 2013. “How to Interpret Informal Flakes Assemblages? Integrating Morphological Description, Usewear and Morphometric Analysis Gave Better Understanding of the Behaviors of Anatomically Modern Human from Song Terus (Indonesia).” Journal of Anthropological Archaeology 32 (4): 630–46. https://doi.org/10.1016/j.jaa.2013.03.002.
 
 Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Approaches: An Experimental Assessment." Lithic Technology 20, no. 2 (1995): 100-15. Accessed June 11, 2021. http://www.jstor.org/stable/23273168.
+
+Jung, H., & Woo, E. J. (2019). Changes in mandibular ramus shape from the Neolithic to modern periods in Korea. International Journal of Osteoarchaeology, 29(4), 634–643. https://doi.org/10.1002/oa.2759
+
 
 Mijares, A. 2008. “The late pleistocene to early holocene foragers of northern Luzon.”		Bulletin of the Indo-Pacific Prehistory Association 28: 99-107.
 
