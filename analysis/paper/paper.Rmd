@@ -149,8 +149,9 @@ write_csv(ma_flakes_tr,
 
 library(tidyverse)
 
-# import
+# import the data 
 ma_flakes_tr <- read_csv(here::here("analysis/data/derived_data/ma_flakes_tr.csv"))
+
 
 # custom function is from here, we have a local version in 999-functions.R
 # so we can work offline if we need to
@@ -224,16 +225,28 @@ pca.geo <- prcomp(two.d.array(sup.geo$coord))
 ```{r cortex-biplot}
 # Note, trying to fix NA by removing all rows which lack dorsal cortex values. Issue with the initial set of data with NA values being passed through PCA. In the process of fixing
 
+# Adding extra groups needed for biplots, as well as removing the outliers brought up earlier
+
 ma_flakes_tr_with_groups <-
   ma_flakes_tr %>%
+  slice(-c(1152,  606, 1147, 1125,  756 ,1023,  457,
+                 813,  415,  877,  677, 1055,  239,  811,  601,  861,
+                  794,  103 , 598 ,1110 , 906 ,  59 ,   4)) %>% 
  # filter(!is.na(dorsal_cortex_perc)) %>% 
-  slice(-outlier_ids) %>%
   mutate(dorsal_cortext_group =
            case_when(
              between(dorsal_cortex_perc, 0, 0) ~ "Tertiary",
              between(dorsal_cortex_perc, 1, 50) ~ "Secondary",
              between(dorsal_cortex_perc, 51, 100) ~ "Primary"
            ))
+
+library(Ckmeans.1d.dp)
+
+test_result_mass <- Ckmeans.1d.dp(ma_flakes_tr_with_groups$mass)
+
+ma_flakes_tr_with_groups <-
+  ma_flakes_tr_with_groups %>% 
+  mutate(mass_group = as.factor(test_result_mass$cluster))
 
 # ggplot2-based plot of the PCA results using a factoextra function
 fviz_pca_ind(pca.geo,
@@ -265,6 +278,62 @@ fviz_pca_ind(pca.geo,
 
   Shape variation is not equal along both principal components. For flakes in all three dorsal cortex classes, the largest differences between each inter-nested is along the first principal component. Slight differences are seen along the second principal component, with an increasing amount of variation as one goes from primary to secondary to tertiary flakes, but these changes are minor when compared to the larger changes seen in the first principal component. 
   
+```{r}
+# Excavation unit PCA
+# ggplot2-based plot of the PCA results using a factoextra function
+fviz_pca_ind(pca.geo,
+             geom.ind = "point", # show points without labels
+            #  line below sets the grouping column for colouring the points
+             habillage = as.factor(ma_flakes_tr_with_groups$Unit),
+             palette = viridis::cividis(13), # color palette, adjust to preferences
+             addEllipses = T, #adds ellipses or convex hulls
+             ellipse.type = "convex", #convex hulls
+             mean.point = F, #don’t show average point
+             legend.title = "Excavation\nunit",
+             title = "Change over time in flake shape") +  #adjust accordingly)
+             coord_fixed(ratio = 1)  + #adjustable for variation-weighted plots
+             theme(panel.background = element_rect(fill='white',
+                                        colour = "white"),
+              plot.background = element_rect(fill='white',
+                                       colour = "white")) 
+```
+
+
+<!-- Need to add in code that actually creates the mass groups -->
+
+```{r}
+
+
+
+
+# Mass PCA
+# ggplot2-based plot of the PCA results using a factoextra function
+fviz_pca_ind(pca.geo,
+             geom.ind = "point", # show points without labels
+            #  line below sets the grouping column for colouring the points
+             habillage = ma_flakes_tr_with_groups$mass_group,
+             palette = viridis::viridis(6), #color palette, adjust to preferences
+             addEllipses = T, #adds ellipses or convex hulls
+             ellipse.type = "convex", #convex hulls
+             mean.point = F, #don’t show average point
+             legend.title = "Mass\ncluster",  #adjust accordingly
+            title = "Flake mass and flake shape") + 
+             coord_fixed(ratio = 1) + #adjustable for variation-weighted plots
+             theme(panel.background = element_rect(fill='white',
+                                        colour = "white"),
+              plot.background = element_rect(fill='white',
+                                       colour = "white")) 
+
+
+
+
+
+
+
+```
+
+
+
 
 <!-- QH: This code chunk below I copied from the old repo. The visualizations on dimension contributions are relevant to my second paragraph. I need to go back to some of my old work to see which values pertain to which measurement on the flakes, and to write up a paragraph or two elaborating on what I have already said. -->
 
