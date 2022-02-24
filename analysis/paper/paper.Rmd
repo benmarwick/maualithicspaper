@@ -225,7 +225,7 @@ ma_flakes_tr_with_groups <-
   mutate(dorsal_cortext_group =
            case_when(
              between(dorsal_cortex_perc, 0, 0) ~ "Tertiary",
-             between(dorsal_cortex_perc, 11, 60) ~ "Secondary",
+             between(dorsal_cortex_perc, 1, 60) ~ "Secondary",
              between(dorsal_cortex_perc, 61, 100) ~ "Primary"
            ))
 
