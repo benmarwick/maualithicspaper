@@ -220,7 +220,7 @@ pca.geo <- prcomp(two.d.array(sup.geo$coord))
 # variables besides dorsal cortex. This code below is a good template for
 # starting these explorations
 
-# Note, trying to fix NA by removing all rows which lack dorsal cortex values. Issue with the intial set of data with NA values being passed through PCA. In the process of fixing
+# Note, trying to fix NA by removing all rows which lack dorsal cortex values. Issue with the initial set of data with NA values being passed through PCA. In the process of fixing
 
 ma_flakes_tr_with_groups <-
   ma_flakes_tr %>%
