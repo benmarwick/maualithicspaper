@@ -219,8 +219,12 @@ pca.geo <- prcomp(two.d.array(sup.geo$coord))
 # into three groups. We need to explore other cutoffs, and other grouping
 # variables besides dorsal cortex. This code below is a good template for
 # starting these explorations
+
+# Note, trying to fix NA by removing all rows which lack dorsal cortex values. Issue with the intial set of data with NA values being passed through PCA. In the process of fixing
+
 ma_flakes_tr_with_groups <-
   ma_flakes_tr %>%
+  filter(!is.na(dorsal_cortex_perc)) %>% 
   slice(-outlier_ids) %>%
   mutate(dorsal_cortext_group =
            case_when(
@@ -239,7 +243,8 @@ fviz_pca_ind(pca.geo,
              ellipse.type = "convex", #convex hulls
              mean.point = F, #don’t show average point
              legend.title = "Dorsal Cortex Class") +  #adjust accordingly)
-             coord_fixed(ratio = 1) #adjustable for variation-weighted plots
+             coord_fixed(ratio = 1)+ #adjustable for variation-weighted plots
+  theme(plot.title = element_blank())
 
 
 
