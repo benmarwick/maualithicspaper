@@ -84,7 +84,9 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 
 ## Methods
 
-  Dorsal cortex percentages discretized upon standard cut points were used to create reduction categories. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. Univariate k-means is a non-hierarchical clustering technique that creates a set number of groups equal to k, with points being assigned to groups in such a manner that the total distances between each point and mean of the group in minimized. For more information on univariate k-means, Papageorgiou (2020) examines the various different statistical techniques (including k-means) that can be applied in an archaeological setting, specifically in the study of ceramics. 
+  Dorsal cortex percentages discretized upon standard cut points were used to create reduction categories. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. 
+  
+  Univariate k-means is a non-hierarchical clustering technique that creates a set number of groups equal to k, with points being assigned to groups in such a manner that the total distances between each point and mean of the group in minimized. We used the Ckmeans.1d.dp package in R to perform our univariate k-means analysis (Wang & Song, 2011). The Ckmeans.1d.dp has been used for univariate clustering in applications outside of archaeology prior to our work (Song & Zhong, 2020).
 
   We initially recorded conventional linear dimension measurements, such as max dimension length and width at various points along the max dimension length, from all flakes recovered from the excavation. Then we converted these linear dimensions into landmarks points to represent the size and shape of each artefact. The specific linear measurements used to create the 2D landmarks were the top horizontal measurement, the max dimension length, width at a quarter of the maximum length, width at half of the maximum length, and width at three quarters of the maximum length.
 
@@ -409,13 +411,14 @@ Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Appro
 
 Jung, H., & Woo, E. J. (2019). Changes in mandibular ramus shape from the Neolithic to modern periods in Korea. International Journal of Osteoarchaeology, 29(4), 634–643. https://doi.org/10.1002/oa.2759
 
-
 Mijares, A. 2008. “The late pleistocene to early holocene foragers of northern Luzon.”		Bulletin of the Indo-Pacific Prehistory Association 28: 99-107.
 
-Papageorgiou, I. (2020). Ceramic investigation: How to perform statistical analyses. Archaeological and Anthropological Sciences, 12(9), 210. https://doi.org/10.1007/s12520-020-01142-x
+Song, M., & Zhong, H. (2020). Efficient weighted univariate clustering maps outstanding dysregulated genomic zones in human cancers. Bioinformatics, 36(20), 5027–5036. https://doi.org/10.1093/bioinformatics/btaa613
 
 Theska, T., Sieriebriennikov, B., Wighard, S. S., Werner, M. S., & Sommer, R. J. (2020). Geometric morphometrics of microscopic animals as exemplified by model nematodes. Nature Protocols, 15(8), 2611–2644. https://doi.org/10.1038/s41596-020-0347-z
  
+Wang, H., & Song, M. (2011). Ckmeans.1d.dp: Optimal k-means Clustering in One Dimension by Dynamic Programming. The R Journal, 3(2), 29–33.
+
 
 <!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
 
