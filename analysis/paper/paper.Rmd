@@ -463,11 +463,22 @@ plot_grid(PC1_contrib,
 
 ```
   
-  <!-- Could not figure out how to change the labels on the x axis for the two bar charts, so I included a small table with the human-meaningful values for now-->
+  <!-- Could not figure out how to change the labels on the x axis for the two bar charts, so I included a small table with the human-meaningful values for now. This must be fixed later-->
   
-  
-  
+  Figure \@ref(fig:contribution_plots) shows the relative contribution of each of the original 18 variables put through our PCA. Looking at the supplementary table, we can see that the first principal component is primarily composed of the x-value for the distal tip landmark, with smaller contributions from the y-values from the two upper-most and mid-upper points. The second primary dimension is composed largely of the y-values for bottom-most and upper-most points. 
+
 # Discussion
+  <!-- This portion partially consists of material from the ISKM presentation. Might want to reword things even more. Moreover, this section needs citations, which will bolster the overall content of this section. -->
+
+  Our data visualizations reveal some noteworthy trends regarding the degree of core reduction. Figure \@ref(fig:excavation-unit-biplot) shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:mass-biplot), where there is a high degree of shape variation in the lighest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:cortex-biplot), where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
+
+  Looking at \@ref(fig:contribution_plots), 
+
+
+
+
+
+
 
 # Conclusion
 
@@ -478,8 +489,8 @@ plot_grid(PC1_contrib,
 \newpage
 
 ## References 
-Archer, W., Djakovic, I., Brenet, M., Bourguignon, L., Presnyakova, D., Schlager, S., Soressi, M., & McPherron, S. P. (2021). Quantifying differences in hominin flaking technologies with 3D shape analysis. Journal of Human Evolution, 150, 102912. https://doi.org/10.1016/j.jhevol.2020.102912
 
+Archer, W., Djakovic, I., Brenet, M., Bourguignon, L., Presnyakova, D., Schlager, S., Soressi, M., & McPherron, S. P. (2021). Quantifying differences in hominin flaking technologies with 3D shape analysis. Journal of Human Evolution, 150, 102912. https://doi.org/10.1016/j.jhevol.2020.102912
 
 Borel, Antony, Richard Cornette, and Michel Baylac. 2017. “Stone Tool Forms and Functions: A Morphometric Analysis of Modern Humans’ Stone Tools From Song Terus Cave (Java, Indonesia).” Archaeometry 59 (3): 455–71. https://doi.org/10.1111/arcm.12264.
 
