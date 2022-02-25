@@ -84,6 +84,8 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 
 ## Methods
 
+  Dorsal cortex percentages discretized upon standard cut points were used to create reduction categories. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. Univariate k-means is a non-hierarchical clustering technique that creates a set number of groups equal to k, with points being assigned to groups in such a manner that the total distances between each point and mean of the group in minimized. For more information on univariate k-means, Papageorgiou (2020) examines the various different statistical techniques (including k-means) that can be applied in an archaeological setting, specifically in the study of ceramics. 
+
   We initially recorded conventional linear dimension measurements, such as max dimension length and width at various points along the max dimension length, from all flakes recovered from the excavation. Then we converted these linear dimensions into landmarks points to represent the size and shape of each artefact. The specific linear measurements used to create the 2D landmarks were the top horizontal measurement, the max dimension length, width at a quarter of the maximum length, width at half of the maximum length, and width at three quarters of the maximum length.
 
 <!-- BM: Because our approach here is very novel, most readers will struggle to understand it. To help them, I think we will need a table that defines each of our dimensions, and a figure that shows an example of our landmark points on a typical artefact -->
@@ -96,7 +98,6 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 
 <!-- QH: Added more information on GPA and PCA, as well as an addition citation -->
 
-Dorsal cortex percentages discretized upon standard cut points were used to create reduction categories. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. Univariate k-means is a non-hierarchical clustering technique that creates a set number of groups equal to k, with points being assigned to groups in such a manner that the total distances between each point and mean of the group in minimized. For more information on univariate k-means, Papageorgiou (2020) examines the various different statistical techniques (including k-means) that can be applied in an archaeological setting, specifically in the study of ceramics. 
   
 <!-- BM: Need to add citations and definition about univariate k-means -->
 
