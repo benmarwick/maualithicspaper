@@ -85,21 +85,15 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 
 ## Methods
 
-Dorsal cortex percentages discretized upon standard cut points were used to create reduction categories. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. 
-  
-Univariate k-means is a non-hierarchical clustering technique that creates a set number of groups equal to k, with points being assigned to groups in such a manner that the total distances between each point and mean of the group in minimized. We used the Ckmeans.1d.dp package in R to perform our univariate k-means analysis (Wang & Song, 2011). The Ckmeans.1d.dp has been used for univariate clustering in applications outside of archaeology prior to our work (Song & Zhong, 2020).
+Dorsal cortex percentages discretized upon standard cut points were used to create reduction categories. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). 
 
-We initially recorded conventional linear dimension measurements, such as max dimension length and width at various points along the max dimension length, from all flakes recovered from the excavation. Then we converted these linear dimensions into landmarks points to represent the size and shape of each artefact. The specific linear measurements used to create the 2D landmarks were the top horizontal measurement, the max dimension length, width at a quarter of the maximum length, width at half of the maximum length, and width at three quarters of the maximum length.
+Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. Univariate k-means is a non-hierarchical clustering technique that creates a set number of groups equal to k, with points being assigned to groups in such a manner that the total distances between each point and mean of the group is minimized. We used the Ckmeans.1d.dp package in R to perform our univariate k-means analysis (Wang & Song, 2011). The Ckmeans.1d.dp has been used for univariate clustering in applications outside of archaeology (Song & Zhong, 2020).
+
+We initially recorded conventional linear dimension measurements, such as max dimension length and width at various points along the max dimension length, from all flakes recovered from the excavation. Then we converted these linear dimensions into landmarks points to represent the shape of each artefact. The specific linear measurements used to create the 2D landmarks were the top horizontal measurement, the max dimension length, width at a quarter of the maximum length, width at half of the maximum length, and width at three quarters of the maximum length.
 
 <!-- BM: Because our approach here is very novel, most readers will struggle to understand it. To help them, I think we will need a table that defines each of our dimensions, and a figure that shows an example of our landmark points on a typical artefact -->
 
-The outlines formed by the shape landmarks were then normalized for size, orientation, and rotation. We used Generalized Procrustes Analysis to strip the flakes in the sample dataset of size, orientation, and rotation, leaving only shape data. Generalized Procrustes Analysis (or GPA) is a statistical tool for taking shapes on a 2D plane and normalizing them so as to only examine the absolute shape of a set of landmarks. An example of GPA being applied to stone tool landmarks is Okumura & Araujo (2014).
-  
-Finally, the shape landmark values were analysed by Principal Components Analysis, a form of exploratory data analysis. Principal Component Analysis takes the initial set of data and transforms the initial set of variables into a smaller set of variables whist still preserving most of the variation seen in the initial data set. PCA has been used to investigate 2D (Riede & Pedersen, 2018; Hoggard et al., 2019; Radinović & Kajtez, 2021) and 3D (Archer et al., 2021) outlines of stone artefacts in the past. Our method for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. PCA biplots, which plot out the first two primary components, were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. The first two primary components formulated the individual points on biplot, while the secondary variables (flake reduction categories, excavation unit, and mass clusters) were represented by colored outlines on the biplots
-
-<!-- BM: Need to add citations to give the reader further information on GPA and shape analysis in archaeology. Need to add a sentence of definitino of what is GPA and what is PCA. Partly to guide the reader to more details, if they want it, and partly to demonstrate our expertise with the method -->
-
-<!-- QH: Added more information on GPA and PCA, as well as an addition citation -->
+In analysing the landmarks we followed a conventional shape analysis workflow of Generalized Procrustes Analysis (GPA) followed by Principal Components Analysis (PCA) (Riede & Pedersen, 2018; Hoggard et al., 2019; Radinović & Kajtez, 2021; Okumura & Araujo 2014; Archer et al., 2021; Theska et al. 2020). We used GPA to normalize landmarks for size, orientation, and rotation, leaving only shape data. The normalized landmarks were then analysed by PCA, a form of exploratory data analysis. Principal Component Analysis takes the initial set of data and transforms and reduces them into a smaller set of variables, whist still preserving most of the variation. To explore the output we made PCA biplots of the first two Principal Components to visualize shape variation based upon secondary categorical variables, namely flake reduction categories, excavation units, and mass clusters. 
 
 
 ## Results
@@ -264,7 +258,7 @@ fviz_pca_ind(pca.geo,
   
 ```
 
-Figure \@ref(fig:cortex-biplot) shows flake shape (as defined within the first two principal components) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slighly larger range of shape variation. Lastly, the tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
+Figure \@ref(fig:cortex-biplot) shows flake shape (as defined within the first two principal components) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slightly larger range of shape variation. Lastly, the tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
 
 Shape variation is not equal along both principal components. For flakes in all three dorsal cortex classes, the largest differences between each inter-nested is along the first principal component. Slight differences are seen along the second principal component, with an increasing amount of variation as one goes from primary to secondary to tertiary flakes, but these changes are minor when compared to the larger changes seen in the first principal component. 
   
@@ -292,7 +286,6 @@ fviz_pca_ind(pca.geo,
 <!-- This portion is lifted largely from the ISKM presentation. Might well reword it later, but it will do for now -->
 
 Figure \@ref(fig:excavation-unit-biplot) shows the flake shapes projected on the first two principal components, and colored according to the excavation unit that they were recovered from. Excavation unit one is near the surface, and unit 13 is near the base. The general picture here is that shape variation changes little through the deposit. Units with fewer flakes, such as 13, show lower shape variation.
-
 
 
 ```{r mass-biplot, fig.cap="PCA biplot for flake shape and mass cluster groups"}
@@ -367,6 +360,7 @@ PC1_contrib +
   scale_x_discrete(labels = 
   as.factor(c("X Value: Top Left",
               "Y Value: Top Left",
+              "X Value: Mid-Upper Left",
               "Y Value: Mid-Upper Left",
               "X Value: Mid-Lower Left",
               "Y Value: Mid-Lower Left",
@@ -381,12 +375,12 @@ PC1_contrib +
               "X Value: Mid-Upper Right",
               "Y Value: Mid-Upper Right",
               "X Value: Top Right",
-              "Y Value: Top Right",
-              "xx"))),
+              "Y Value: Top Right"))),
           PC2_contrib + 
     scale_x_discrete(labels = 
   as.factor(c("X Value: Top Left",
               "Y Value: Top Left",
+              "X Value: Mid-Upper Left",
               "Y Value: Mid-Upper Left",
               "X Value: Mid-Lower Left",
               "Y Value: Mid-Lower Left",
@@ -401,11 +395,8 @@ PC1_contrib +
               "X Value: Mid-Upper Right",
               "Y Value: Mid-Upper Right",
               "X Value: Top Right",
-              "Y Value: Top Right",
-              "xx")))
+              "Y Value: Top Right")))
   )
- 
-
 ```
 
   
@@ -414,9 +405,9 @@ Figure \@ref(fig:contribution-plots) shows the relative contribution of each of 
 # Discussion
   <!-- This portion partially consists of material from the ISKM presentation. Might want to reword things even more. Moreover, this section needs citations, which will bolster the overall content of this section. -->
 
-  Our data visualizations reveal some noteworthy trends regarding the degree of core reduction. Figure \@ref(fig:excavation-unit-biplot) shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:mass-biplot), where there is a high degree of shape variation in the lighest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:cortex-biplot), where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
+Our data visualizations reveal some noteworthy trends regarding the degree of core reduction. Figure \@ref(fig:excavation-unit-biplot) shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:mass-biplot), where there is a high degree of shape variation in the lightest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:cortex-biplot), where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
 
-Looking at \@ref(fig:contribution_plots), 
+Looking at \@ref(fig:contribution-plots), 
 
 
 
