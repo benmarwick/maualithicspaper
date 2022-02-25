@@ -9,6 +9,17 @@
     ]
   },
   "Packages": {
+    "Ckmeans.1d.dp": {
+      "Package": "Ckmeans.1d.dp",
+      "Version": "4.3.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0424740017e04fb7309e8fa892367d31",
+      "Requirements": [
+        "Rcpp",
+        "Rdpack"
+      ]
+    },
     "DBI": {
       "Package": "DBI",
       "Version": "1.1.2",
@@ -156,6 +167,16 @@
       "Requirements": [
         "Matrix",
         "Rcpp"
+      ]
+    },
+    "Rdpack": {
+      "Package": "Rdpack",
+      "Version": "2.1.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "250b60978bbd2b7761f1dd81563e93a1",
+      "Requirements": [
+        "rbibutils"
       ]
     },
     "Rvcg": {
@@ -391,10 +412,10 @@
     },
     "cli": {
       "Package": "cli",
-      "Version": "3.1.1",
+      "Version": "3.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "da5160e769a652e3ec7111d63883f9bc",
+      "Hash": "1bdb126893e9ce6aae50ad1d6fc32faf",
       "Requirements": [
         "glue"
       ]
@@ -433,10 +454,10 @@
     },
     "colorspace": {
       "Package": "colorspace",
-      "Version": "2.0-2",
+      "Version": "2.0-3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "6baccb763ee83c0bd313460fdb8b8a84",
+      "Hash": "bb4341986bc8b914f0f0acf2e4a3f2f7",
       "Requirements": []
     },
     "commonmark": {
@@ -478,10 +499,10 @@
     },
     "crayon": {
       "Package": "crayon",
-      "Version": "1.4.2",
+      "Version": "1.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "0a6a65d92bd45b47b94b84244b528d17",
+      "Hash": "741c2e098e98afe3dc26a7b0e5489f4e",
       "Requirements": []
     },
     "credentials": {
@@ -635,13 +656,12 @@
     },
     "dplyr": {
       "Package": "dplyr",
-      "Version": "1.0.7",
+      "Version": "1.0.8",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "36f1ae62f026c8ba9f9b5c9a08c03297",
+      "Hash": "ef47665e64228a17609d6df877bf86f2",
       "Requirements": [
         "R6",
-        "ellipsis",
         "generics",
         "glue",
         "lifecycle",
@@ -951,6 +971,35 @@
       "Repository": "CRAN",
       "Hash": "f3aefccc1cc50de6338146b62f115de8",
       "Requirements": []
+    },
+    "gitsum": {
+      "Package": "gitsum",
+      "Version": "0.0.9001",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "gitsum",
+      "RemoteUsername": "lorenzwalthert",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "33555bc87854212f4f37a37ab9c22c043e9b85eb",
+      "Hash": "8eb58853368966622e8a82b50ed6e5a2",
+      "Requirements": [
+        "cli",
+        "dplyr",
+        "forcats",
+        "ggplot2",
+        "hms",
+        "lubridate",
+        "magrittr",
+        "purrr",
+        "readr",
+        "rlang",
+        "rmarkdown",
+        "rprojroot",
+        "stringr",
+        "tibble",
+        "tidyr"
+      ]
     },
     "glue": {
       "Package": "glue",
@@ -1603,6 +1652,14 @@
       "Hash": "5e3c5dc0b071b21fa128676560dbe94d",
       "Requirements": []
     },
+    "rbibutils": {
+      "Package": "rbibutils",
+      "Version": "2.2.7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "69f4a840b0c2aa99f5ce473fd7fa21bd",
+      "Requirements": []
+    },
     "rcmdcheck": {
       "Package": "rcmdcheck",
       "Version": "1.4.0",
@@ -2050,15 +2107,15 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.36.1",
+      "Version": "0.37.1",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "tinytex",
       "RemoteUsername": "yihui",
       "RemoteRef": "HEAD",
-      "RemoteSha": "19c56dcd5149923bece847df12077c8b0db06894",
-      "Hash": "1cbb3bdaabfa8d5452d086fc2247b723",
+      "RemoteSha": "30253ce5dabae6f733ead4fc06adabeab2010f1d",
+      "Hash": "30cf04c7f889aa603c816596a75e3b19",
       "Requirements": [
         "xfun"
       ]
@@ -2232,10 +2289,10 @@
     },
     "yaml": {
       "Package": "yaml",
-      "Version": "2.2.2",
+      "Version": "2.3.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "4597f73aad7d32c2913ec33a345f900b",
+      "Hash": "84c6e30ea1adddaebd4b33d6c5cb5e65",
       "Requirements": []
     },
     "zip": {
