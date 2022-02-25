@@ -100,10 +100,6 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 
 <!-- QH: Added more information on GPA and PCA, as well as an addition citation -->
 
-  
-<!-- BM: Need to add citations and definition about univariate k-means -->
-
-<!-- QH: added more info on univariate k-means, as well as a citation  -->
 
 ## Results
 
@@ -340,7 +336,7 @@ fviz_pca_ind(pca.geo,
 
 <!-- QH: This code chunk below I copied from the old repo. The visualizations on dimension contributions are relevant to my second paragraph. I need to go back to some of my old work to see which values pertain to which measurement on the flakes, and to write up a paragraph or two elaborating on what I have already said. -->
 
-```{r}
+```{r contribution_plots}
 # let's look at all the PCs and how much each original # variable contributes to them
 
 #view how much variation is described by each PC (ordered from PC1 to last PC)
@@ -385,11 +381,88 @@ for (i in 1:(nrow(PC2_contrib$data)/2)) {
 
 library(cowplot)
 
+# This is a temporary fix just to get the labels looking nice for now; there is most certainly a cleaner way to do this
+# My fix did not work. I will have to create a temp table showing the values for now
+
+
+# PC1_contrib[["plot_env"]][["xx"]] <- as.factor(c("X Value: Top Left",
+#                                              "Y Value: Top Left",
+#                                               "Y Value: Mid-Upper Left",
+#                                               "X Value: Mid-Lower Left",
+#                                               "Y Value: Mid-Lower Left",
+#                                               "X Value: Bottom Left",
+#                                               "Y Value: Bottom Left",
+#                                               "X Value: Distal Tip",
+#                                               "Y Value: Distal Tip",
+#                                               "X Value: Bottom Right",
+#                                               "Y Value: Bottom Right",
+#                                               "X Value: Mid-Lower Right",
+#                                               "Y Value: Mid-Lower Right",
+#                                               "X Value: Mid-Upper Right",
+#                                               "Y Value: Mid-Upper Right",
+#                                               "X Value: Top Right",
+#                                               "Y Value: Top Right"))
+#
+
+
+#iris$Species[iris$Species == 'virginica'] <- 'setosa'
+
+
+#PC1_contrib[["plot_env"]][["data"]][["name"]][PC1_contrib[["plot_env"]][["data"]][["name"]] == '5.X'] <- "X Value: Distal Tip"
+
+
+
+#PC1_contrib[["plot_env"]][["data_sum"]][["name"]] <- as.factor(c(1:18))
+
+output_meanings <-tibble(data.frame(c("X Value: Top Left",
+         "Y Value: Top Left",
+         "X Value: Mid-Upper Left",
+         "Y Value: Mid-Upper Left",
+         "X Value: Mid-Lower Left",
+         "Y Value: Mid-Lower Left",
+         "X Value: Bottom Left",
+         "Y Value: Bottom Left",
+         "X Value: Distal Tip",
+         "Y Value: Distal Tip",
+         "X Value: Bottom Right",
+         "Y Value: Bottom Right",
+         "X Value: Mid-Lower Right",
+         "Y Value: Mid-Lower Right",
+         "X Value: Mid-Upper Right",
+         "Y Value: Mid-Upper Right",
+         "X Value: Top Right",
+         "Y Value: Top Right"),
+       c("1X",
+         "1Y",
+         "2X",
+         "2Y",
+         "3X",
+         "3Y",
+         "4X",
+         "4Y",
+         "5X",
+         "5Y",
+         "6X",
+         "6Y",
+         "7X",
+         "7Y",
+         "8X",
+         "8Y",
+         "9X",
+         "9Y"))) 
+
+
+output_meanings <- setNames(output_meanings, c("Landmark Value", "Computer Output"))
+
 plot_grid(PC1_contrib, 
           PC2_contrib)
-
+ output_meanings
 
 ```
+  
+  <!-- Could not figure out how to change the labels on the x axis for the two bar charts, so I included a small table with the human-meaningful values for now-->
+  
+  
   
 # Discussion
 
