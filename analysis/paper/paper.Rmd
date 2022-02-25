@@ -92,9 +92,9 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 
 <!-- BM: Because our approach here is very novel, most readers will struggle to understand it. To help them, I think we will need a table that defines each of our dimensions, and a figure that shows an example of our landmark points on a typical artefact -->
 
-  The outlines formed by the shape landmarks were then normalized for size, orientation, and rotation. We used Generalized Procrustes Analysis to strip the flakes in the sample dataset of size, orientation, and rotation, leaving only shape data. Generalized Procrustes Analysis (or GPA) is a statistical tool for taking shapes on a 2D plane and normalizing them so as to only examine the absolute shape of a set of landmarks. For an example of GPA being utilized to examine 2D landmarks in an archaeological context, refer to Jung & Woo (2019).
-
-  Finally, the shape landmark values were analysed by Principal Components Analysis, a form of exploratory data analysis. Our method for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. Principal Component Analysis takes the initial set of data and transforms the initial set of variables into a smaller set of variables whist still preserving most of the variation seen in the initial data set. PCA biplots, which plot out the first two primary components, were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. The first two primary components formulated the individual points on biplot, while the secondary variables (flake reduction categories, excavation unit, and mass clusters) were represented by colored outlines on the biplots
+  The outlines formed by the shape landmarks were then normalized for size, orientation, and rotation. We used Generalized Procrustes Analysis to strip the flakes in the sample dataset of size, orientation, and rotation, leaving only shape data. Generalized Procrustes Analysis (or GPA) is a statistical tool for taking shapes on a 2D plane and normalizing them so as to only examine the absolute shape of a set of landmarks. An example of GPA being applied to stone tool landmarks is Okumura & Araujo (2014).
+  
+  Finally, the shape landmark values were analysed by Principal Components Analysis, a form of exploratory data analysis. Principal Component Analysis takes the initial set of data and transforms the initial set of variables into a smaller set of variables whist still preserving most of the variation seen in the initial data set. PCA has been used to investigate 2D (Riede & Pedersen, 2018; Hoggard et al., 2019; Radinović & Kajtez, 2021) and 3D (Archer et al., 2021) outlines of stone artefacts in the past. Our method for carrying out the PCA on the shape landmarks was inspired by Theska et al. (2020), which also performed 2D landmark data analysis using PCA. PCA biplots, which plot out the first two primary components, were created to visualize differences based upon secondary categorical variables, namely flake reduction categories, excavation unit, and mass cluster. The first two primary components formulated the individual points on biplot, while the secondary variables (flake reduction categories, excavation unit, and mass clusters) were represented by colored outlines on the biplots
 
 <!-- BM: Need to add citations to give the reader further information on GPA and shape analysis in archaeology. Need to add a sentence of definitino of what is GPA and what is PCA. Partly to guide the reader to more details, if they want it, and partly to demonstrate our expertise with the method -->
 
@@ -402,6 +402,8 @@ plot_grid(PC1_contrib,
 \newpage
 
 ## References 
+Archer, W., Djakovic, I., Brenet, M., Bourguignon, L., Presnyakova, D., Schlager, S., Soressi, M., & McPherron, S. P. (2021). Quantifying differences in hominin flaking technologies with 3D shape analysis. Journal of Human Evolution, 150, 102912. https://doi.org/10.1016/j.jhevol.2020.102912
+
 
 Borel, Antony, Richard Cornette, and Michel Baylac. 2017. “Stone Tool Forms and Functions: A Morphometric Analysis of Modern Humans’ Stone Tools From Song Terus Cave (Java, Indonesia).” Archaeometry 59 (3): 455–71. https://doi.org/10.1111/arcm.12264.
 
@@ -409,9 +411,15 @@ Borel, Antony, Claire Gaillard, Marie-Hélène Moncel, Robert Sala, Emmanuelle P
 
 Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Approaches: An Experimental Assessment." Lithic Technology 20, no. 2 (1995): 100-15. Accessed June 11, 2021. http://www.jstor.org/stable/23273168.
 
-Jung, H., & Woo, E. J. (2019). Changes in mandibular ramus shape from the Neolithic to modern periods in Korea. International Journal of Osteoarchaeology, 29(4), 634–643. https://doi.org/10.1002/oa.2759
+Hoggard, C. S., McNabb, J., & Cole, J. N. (2019). The Application of Elliptic Fourier Analysis in Understanding Biface Shape and Symmetry Through the British Acheulean. Journal of Paleolithic Archaeology, 2(2), 115–133. https://doi.org/10.1007/s41982-019-00024-6
 
 Mijares, A. 2008. “The late pleistocene to early holocene foragers of northern Luzon.”		Bulletin of the Indo-Pacific Prehistory Association 28: 99-107.
+
+Okumura, M., & Araujo, A. G. M. (2014). Long-term cultural stability in hunter–gatherers: A case study using traditional and geometric morphometric analysis of lithic stemmed bifacial points from Southern Brazil. Journal of Archaeological Science, 45, 59–71. https://doi.org/10.1016/j.jas.2014.02.009
+
+Radinović, M., & Kajtez, I. (2021). Outlining the knapping techniques: Assessment of the shape and regularity of prismatic blades using elliptic Fourier analysis. Journal of Archaeological Science: Reports, 38, 103079. https://doi.org/10.1016/j.jasrep.2021.103079
+
+Riede, F., & Pedersen, J. B. (2018). Late Glacial Human Dispersals in Northern Europe and Disequilibrium Dynamics. Human Ecology, 46(5), 621–632. https://doi.org/10.1007/s10745-017-9964-8
 
 Song, M., & Zhong, H. (2020). Efficient weighted univariate clustering maps outstanding dysregulated genomic zones in human cancers. Bioinformatics, 36(20), 5027–5036. https://doi.org/10.1093/bioinformatics/btaa613
 
