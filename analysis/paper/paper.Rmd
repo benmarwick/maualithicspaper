@@ -244,7 +244,7 @@ ma_flakes_tr_with_groups <-
   mutate(mass_group = as.factor(test_result_mass$cluster))
 
 # ggplot2-based plot of the PCA results using a factoextra function
-fviz_pca_ind(pca.geo,
+cortex_biplot <- fviz_pca_ind(pca.geo,
              geom.ind = "point", # show points without labels
             #  line below sets the grouping column for colouring the points
              habillage = ma_flakes_tr_with_groups$dorsal_cortext_group,
@@ -265,7 +265,7 @@ Shape variation is not equal along both principal components. For flakes in all 
 ```{r excavation-unit-biplot, fig.cap="PCA biplot for flake shape and excavation unit."}
 # Excavation unit PCA
 # ggplot2-based plot of the PCA results using a factoextra function
-fviz_pca_ind(pca.geo,
+excavation_unit_biplot <- fviz_pca_ind(pca.geo,
              geom.ind = "point", # show points without labels
             #  line below sets the grouping column for colouring the points
              habillage = as.factor(ma_flakes_tr_with_groups$Unit),
@@ -292,7 +292,7 @@ Figure \@ref(fig:excavation-unit-biplot) shows the flake shapes projected on the
 
 # Mass PCA
 # ggplot2-based plot of the PCA results using a factoextra function
-fviz_pca_ind(pca.geo,
+mass_biplot <- fviz_pca_ind(pca.geo,
              geom.ind = "point", # show points without labels
             #  line below sets the grouping column for colouring the points
              habillage = ma_flakes_tr_with_groups$mass_group,
@@ -311,6 +311,54 @@ fviz_pca_ind(pca.geo,
 ```
 
 In figure \@ref(fig:mass-biplot) we see that greater shape variation is found in the lightest mass classes. The two lightest mass clusters, one and two, are in purple and blue respectively. These first two mass classes span the largest area on the biplot, signifying a larger degree of variation overall. 
+
+```{r}
+library(cowplot)
+
+
+
+plot_grid(
+  cortex_biplot, NULL, NULL,  excavation_unit_biplot,  mass_biplot, NULL,
+  ncol = 2,
+  labels = c("A", NULL, NULL,"B","C",NULL),
+  label_size = 12,
+  align = "v",
+  rel_heights = c(1.1,
+                  1,
+                  1.1,
+                  4,
+                  1,
+                  1),
+  rel_widths = c(2,
+                 2,
+                 2,
+                 4,
+                 2,
+                 1))
+  
+#cortex_biplot + theme(plot.margin = unit(c(3,3,3,3), "lines"))
+#excavation_unit_biplot
+#mass_biplot
+
+#plot_grid(
+#  plot_a, NULL, plot_b
+#  , nrow = 1
+#  , rel_widths = c(1, 0.05, 1)
+#  , labels = c("A", "", "B")
+#)
+
+    #      axis = "none",
+   #       scale = 1,
+   #       nrow = 3,
+    #      ncol = 1,
+   #       rel_widths = c(1,1,1),
+   #       rel_heights = c(1,1,1)
+
+```
+
+
+
+
 
 ```{r contribution-plots, fig.cap="Plots showing the contribution of landmarks to the overall shape variation among flakes."}
 # let's look at all the PCs and how much each original # variable contributes to them
