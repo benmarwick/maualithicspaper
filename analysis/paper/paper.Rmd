@@ -65,6 +65,7 @@ Flaked stone artefacts from Southeast Asia typically lack visually distinctive a
 - Stone tools from South East Asia tend to lack distinctive typological categories (Mijares 2008; Borel et al. 2013; Borel et al. 2017)
 - The purpose of this study was to examine the relationship between flake shape and reduction intensity
 - Approach used in the paper is a response to the lack of traditional typological categories in South East Asia
+-Further context from (McAdams et al, 2020)
 
 Here is a citation [@Marwick2017]
 
@@ -471,7 +472,6 @@ Figure \@ref(fig:contribution-plots) shows the relative contribution of each of 
 
   Our data visualizations reveal some noteworthy trends regarding the degree of core reduction. Figure \@ref(fig:excavation-unit-biplot) shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:mass-biplot), where there is a high degree of shape variation in the lightest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:cortex-biplot), where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
 
-
  <!-- QH: As I write this I notice a major issue with the axes labels on the contribution plots. Instead of substituting the original labels on a one to one basis with our English labels, our plots are just printing out our list of English labels in the order they are listed in our code. This has to be fixed. I then need to redo my description of the plots, since it is all wrong and based off of the eroneous labels. -->
 
 Looking at \@ref(fig:contribution-plots), the landmarks which contributed the most to each principal component were all located on the left side of our artefacts. This means that linking our initial flake measurements (maximum length, top width etc.) to either of the first two principal components is nearly impossible, as every one of our initial flake measurements (with the)
@@ -479,8 +479,7 @@ Looking at \@ref(fig:contribution-plots), the landmarks which contributed the mo
 one can see that there is no consistent pattern in which certain initial flake measurements  align closely with either the first or second principal components. Interestingly, the landmarks which contributed the most to each principal component were all located on the left side of our artefacts..
 
 
-
-
+The lack of distinct morphological groupings and the increased variability of shape in the smaller, tertiary flakes is consistent with previous studies. Other studies which investigated the morphology of flake outlines from South East Asia concluded that there is no significant relationship between flake outline and flake use (Borel et al., 2013; Borel et al., 2017). While our analysis not rely upon outlines, both outlines and landmarks are ultimately methods for measuring the morphology of flaked stone tools, and as such, the same models which explain outline variability can be cautiously applied to our analysis. The large amount of variability in flake shape, especially in the tertiary flakes, suggests that the knappers were not looking to create a specific shape of flake, with the amount of varitiblity increasing as flakes are struck off of increasingly differed cores. This behavior is consistent with processes of expedient knapping, where a large number of flakes are created in a relatively free-form manner and useful flakes are picked up and used after knapping is finished (Holdaway & Douglass, 2012; McCall, 2012). Processes of expedient knapping suggest that stone tools were of secondary importance in the material culture of the knappers (Sillitoe & Hardy, 2003). Elsewhere it has been suggested stone tools were primarily used to create bamboo tools in South East Asia (Mijares, 2001). A reliance upon bamboo tools, with stone flakes merely being an intermediary to produce bamboo tools, would explain the great variability in the lithic assemblages at Mau A.
 
 
 
@@ -504,6 +503,15 @@ Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Appro
 
 Hoggard, C. S., McNabb, J., & Cole, J. N. (2019). The Application of Elliptic Fourier Analysis in Understanding Biface Shape and Symmetry Through the British Acheulean. Journal of Paleolithic Archaeology, 2(2), 115–133. https://doi.org/10.1007/s41982-019-00024-6
 
+Holdaway, S., & Douglass, M. (2012). A Twenty-First Century Archaeology of Stone Artifacts. Journal of Archaeological Method and Theory, 19(1), 101–131. https://doi.org/10.1007/s10816-011-9103-6
+
+McAdams, C., Morley, M. W., Fu, X., Kandyba, A. V., Derevianko, A. P., Nguyen, D. T., Doi, N. G., & Roberts, R. G. (2020). The Pleistocene geoarchaeology and geochronology of Con Moong Cave, North Vietnam: Site formation processes and hominin activity in the humid tropics. Geoarchaeology, 35(1), 72–97. https://doi.org/10.1002/gea.21758
+
+
+McCall, G. S. (2012). Ethnoarchaeology and the Organization of Lithic Technology. Journal of Archaeological Research, 20(2), 157–203. https://doi.org/10.1007/s10814-011-9056-z
+
+Mijares, A. S. B. (2001). An Expedient Lithic Technology in Northern Luzon (Philippines). Lithic Technology, 26(2), 138–152. https://doi.org/10.1080/01977261.2001.11720983
+
 Mijares, A. 2008. “The late pleistocene to early holocene foragers of northern Luzon.”		Bulletin of the Indo-Pacific Prehistory Association 28: 99-107.
 
 Okumura, M., & Araujo, A. G. M. (2014). Long-term cultural stability in hunter–gatherers: A case study using traditional and geometric morphometric analysis of lithic stemmed bifacial points from Southern Brazil. Journal of Archaeological Science, 45, 59–71. https://doi.org/10.1016/j.jas.2014.02.009
@@ -512,7 +520,11 @@ Radinović, M., & Kajtez, I. (2021). Outlining the knapping techniques: Assessme
 
 Riede, F., & Pedersen, J. B. (2018). Late Glacial Human Dispersals in Northern Europe and Disequilibrium Dynamics. Human Ecology, 46(5), 621–632. https://doi.org/10.1007/s10745-017-9964-8
 
+Sillitoe, P., & Hardy, K. (2003). Living Lithics: Ethnoarchaeology in Highland Papua New Guinea. Antiquity, 77(297), 555–566. https://doi.org/10.1017/S0003598X00092619
+
+
 Song, M., & Zhong, H. (2020). Efficient weighted univariate clustering maps outstanding dysregulated genomic zones in human cancers. Bioinformatics, 36(20), 5027–5036. https://doi.org/10.1093/bioinformatics/btaa613
+
 
 Theska, T., Sieriebriennikov, B., Wighard, S. S., Werner, M. S., & Sommer, R. J. (2020). Geometric morphometrics of microscopic animals as exemplified by model nematodes. Nature Protocols, 15(8), 2611–2644. https://doi.org/10.1038/s41596-020-0347-z
  
