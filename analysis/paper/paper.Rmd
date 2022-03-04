@@ -83,9 +83,10 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 <!-- BM: add a paragraph on MH's pollen analysis to indicate local palaeoenvironment, and add her as co-author-->
 
 
+<!-- QH: Trying to think of a way to make this figure work with the current figure numbering system we have in bookdown. Adding in a number that starts before 1.1 for now -->
 ## Methods
 
-![This is a test.](./test_graphic.png)
+![Figure 1.0. Schematic figure showing both the intial measurements that were used to generate our landmarks and the location of our landmarks on a hypothetical flake. A, B, C, D, and E are the top horizontal measurement, width at a quarter of the maximum length, maximum dimension length, width at a quarter of the maximum length, and width at three quarter of the maximum length respectively. Points 1 through 9 are all of the landmarks generated from measurements A through E.  ](./test_graphic.png)
 
 
 Dorsal cortex percentages discretized upon standard cut points were used to create reduction categories. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). 
@@ -415,49 +416,51 @@ for (i in 1:(nrow(PC2_contrib$data)/2)) {
 
 library(cowplot)
 
-plot_grid(
-  
-PC1_contrib +
-  scale_x_discrete(labels = 
-  as.factor(c("X Value: Top Left",
-              "Y Value: Top Left",
-              "X Value: Mid-Upper Left",
-              "Y Value: Mid-Upper Left",
-              "X Value: Mid-Lower Left",
-              "Y Value: Mid-Lower Left",
-              "X Value: Bottom Left",
-              "Y Value: Bottom Left",
-              "X Value: Distal Tip",
-              "Y Value: Distal Tip",
-              "X Value: Bottom Right",
-              "Y Value: Bottom Right",
-              "X Value: Mid-Lower Right",
-              "Y Value: Mid-Lower Right",
-              "X Value: Mid-Upper Right",
-              "Y Value: Mid-Upper Right",
-              "X Value: Top Right",
-              "Y Value: Top Right"))),
+plot_grid(PC1_contrib +
+          scale_x_discrete(labels = 
+                           as.factor(c("X Value: Top Left",
+                          "Y Value: Top Left",
+                          "X Value: Mid-Upper Left",
+                          "Y Value: Mid-Upper Left",
+                          "X Value: Mid-Lower Left",
+                          "Y Value: Mid-Lower Left",
+                          "X Value: Bottom Left",
+                          "Y Value: Bottom Left",
+                          "X Value: Distal Tip",
+                          "Y Value: Distal Tip",
+                          "X Value: Bottom Right",
+                          "Y Value: Bottom Right",
+                          "X Value: Mid-Lower Right",
+                          "Y Value: Mid-Lower Right",
+                          "X Value: Mid-Upper Right",
+                          "Y Value: Mid-Upper Right",
+                          "X Value: Top Right",
+                          "Y Value: Top Right")))+
+             theme(axis.text = element_text(size = 5)),
           PC2_contrib + 
-    scale_x_discrete(labels = 
-  as.factor(c("X Value: Top Left",
-              "Y Value: Top Left",
-              "X Value: Mid-Upper Left",
-              "Y Value: Mid-Upper Left",
-              "X Value: Mid-Lower Left",
-              "Y Value: Mid-Lower Left",
-              "X Value: Bottom Left",
-              "Y Value: Bottom Left",
-              "X Value: Distal Tip",
-              "Y Value: Distal Tip",
-              "X Value: Bottom Right",
-              "Y Value: Bottom Right",
-              "X Value: Mid-Lower Right",
-              "Y Value: Mid-Lower Right",
-              "X Value: Mid-Upper Right",
-              "Y Value: Mid-Upper Right",
-              "X Value: Top Right",
-              "Y Value: Top Right")))
+          scale_x_discrete(labels = 
+                           as.factor(c("X Value: Top Left",
+                           "Y Value: Top Left",
+                           "X Value: Mid-Upper Left",
+                           "Y Value: Mid-Upper Left",
+                           "X Value: Mid-Lower Left",
+                           "Y Value: Mid-Lower Left",
+                           "X Value: Bottom Left",
+                           "Y Value: Bottom Left",
+                           "X Value: Distal Tip",
+                           "Y Value: Distal Tip",
+                           "X Value: Bottom Right",
+                           "Y Value: Bottom Right",
+                           "X Value: Mid-Lower Right",
+                           "Y Value: Mid-Lower Right",
+                           "X Value: Mid-Upper Right",
+                           "Y Value: Mid-Upper Right",
+                           "X Value: Top Right",
+                           "Y Value: Top Right")))+
+             theme(axis.text = element_text(size = 5))
   )
+
+
 ```
 
   
@@ -466,9 +469,9 @@ Figure \@ref(fig:contribution-plots) shows the relative contribution of each of 
 # Discussion
   <!-- This portion partially consists of material from the ISKM presentation. Might want to reword things even more. Moreover, this section needs citations, which will bolster the overall content of this section. -->
 
-Our data visualizations reveal some noteworthy trends regarding the degree of core reduction. Figure \@ref(fig:excavation-unit-biplot) shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:mass-biplot), where there is a high degree of shape variation in the lightest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:cortex-biplot), where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
+  Our data visualizations reveal some noteworthy trends regarding the degree of core reduction. Figure \@ref(fig:excavation-unit-biplot) shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:mass-biplot), where there is a high degree of shape variation in the lightest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:cortex-biplot), where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
 
-Looking at \@ref(fig:contribution-plots), 
+Looking at \@ref(fig:contribution-plots), one can see that 
 
 
 
