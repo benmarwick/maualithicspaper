@@ -223,7 +223,7 @@ pca.geo <- prcomp(two.d.array(sup.geo$coord))
 # starting these explorations
 ```
 
-```{r cortex-biplot, fig.cap="PCA biplot for flake shape and dorsal cortex class."}
+```{r, fig.cap="PCA biplot for flake shape and dorsal cortex class."}
 
 ma_flakes_tr_with_groups <-
   ma_flakes_tr %>%
@@ -261,11 +261,9 @@ cortex_biplot <- fviz_pca_ind(pca.geo,
   
 ```
 
-Figure \@ref(fig:cortex-biplot) shows flake shape (as defined within the first two principal components) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slightly larger range of shape variation. Lastly, the tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
 
-Shape variation is not equal along both principal components. For flakes in all three dorsal cortex classes, the largest differences between each inter-nested is along the first principal component. Slight differences are seen along the second principal component, with an increasing amount of variation as one goes from primary to secondary to tertiary flakes, but these changes are minor when compared to the larger changes seen in the first principal component. 
   
-```{r excavation-unit-biplot, fig.cap="PCA biplot for flake shape and excavation unit."}
+```{r, fig.cap="PCA biplot for flake shape and excavation unit."}
 # Excavation unit PCA
 # ggplot2-based plot of the PCA results using a factoextra function
 excavation_unit_biplot <- fviz_pca_ind(pca.geo,
@@ -288,10 +286,7 @@ excavation_unit_biplot <- fviz_pca_ind(pca.geo,
 
 <!-- This portion is lifted largely from the ISKM presentation. Might well reword it later, but it will do for now -->
 
-Figure \@ref(fig:excavation-unit-biplot) shows the flake shapes projected on the first two principal components, and colored according to the excavation unit that they were recovered from. Excavation unit one is near the surface, and unit 13 is near the base. The general picture here is that shape variation changes little through the deposit. Units with fewer flakes, such as 13, show lower shape variation.
-
-
-```{r mass-biplot, fig.cap="PCA biplot for flake shape and mass cluster groups"}
+```{r, fig.cap="PCA biplot for flake shape and mass cluster groups"}
 
 # Mass PCA
 # ggplot2-based plot of the PCA results using a factoextra function
@@ -313,31 +308,30 @@ mass_biplot <- fviz_pca_ind(pca.geo,
     theme(plot.title = element_blank())
 ```
 
-In figure \@ref(fig:mass-biplot) we see that greater shape variation is found in the lightest mass classes. The two lightest mass clusters, one and two, are in purple and blue respectively. These first two mass classes span the largest area on the biplot, signifying a larger degree of variation overall. 
-
+<!-- Below are my attempts to create a nice looking plot_grid of the three biplots. I was not able to get it to display properly, so I am just printing off each biplot individually all in a row as a temporary measure.  -->
 ```{r}
 library(cowplot)
 
 
 
-plot_grid(
-  cortex_biplot, NULL, NULL,  excavation_unit_biplot,  mass_biplot, NULL,
-  ncol = 2,
-  labels = c("A", NULL, NULL,"B","C",NULL),
-  label_size = 12,
-  align = "v",
-  rel_heights = c(1.1,
-                  1,
-                  1.1,
-                  4,
-                  1,
-                  1),
-  rel_widths = c(2,
-                 2,
-                 2,
-                 4,
-                 2,
-                 1))
+# plot_grid(
+#  cortex_biplot, NULL, NULL,  excavation_unit_biplot,  mass_biplot, NULL,
+#  ncol = 2,
+#  labels = c("A", NULL, NULL,"B","C",NULL),
+#  label_size = 12,
+#  align = "v",
+#  rel_heights = c(1.1,
+#                  1,
+#                  1.1,
+#                  4,
+#                  1,
+#                  1),
+#  rel_widths = c(2,
+#                 2,
+#                 2,
+#                 4,
+#                 2,
+#                 1))
   
 #cortex_biplot + theme(plot.margin = unit(c(3,3,3,3), "lines"))
 #excavation_unit_biplot
@@ -359,9 +353,25 @@ plot_grid(
 
 ```
 
+```{r cortex-biplot, fig.cap="PCA biplot for flake shape and dorsal cortex class."}
+cortex_biplot
+```
 
+```{r excavation-unit-biplot, fig.cap="PCA biplot for flake shape and excavation unit."}
+excavation_unit_biplot
+```
 
+```{r mass-biplot, fig.cap="PCA biplot for flake shape and mass cluster groups"}
+mass_biplot
+```
 
+Figure \@ref(fig:cortex-biplot) shows flake shape (as defined within the first two principal components) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slightly larger range of shape variation. Lastly, the tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
+
+Shape variation is not equal along both principal components. For flakes in all three dorsal cortex classes, the largest differences between each inter-nested is along the first principal component. Slight differences are seen along the second principal component, with an increasing amount of variation as one goes from primary to secondary to tertiary flakes, but these changes are minor when compared to the larger changes seen in the first principal component. 
+
+Figure \@ref(fig:excavation-unit-biplot) shows the flake shapes projected on the first two principal components, and colored according to the excavation unit that they were recovered from. Excavation unit one is near the surface, and unit 13 is near the base. The general picture here is that shape variation changes little through the deposit. Units with fewer flakes, such as 13, show lower shape variation.
+
+In Figure \@ref(fig:mass-biplot) we see that greater shape variation is found in the lightest mass classes. The two lightest mass clusters, one and two, are in purple and blue respectively. These first two mass classes span the largest area on the biplot, signifying a larger degree of variation overall. 
 
 ```{r contribution-plots, fig.cap="Plots showing the contribution of landmarks to the overall shape variation among flakes."}
 # let's look at all the PCs and how much each original # variable contributes to them
