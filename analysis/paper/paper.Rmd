@@ -471,7 +471,12 @@ Figure \@ref(fig:contribution-plots) shows the relative contribution of each of 
 
   Our data visualizations reveal some noteworthy trends regarding the degree of core reduction. Figure \@ref(fig:excavation-unit-biplot) shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:mass-biplot), where there is a high degree of shape variation in the lightest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:cortex-biplot), where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
 
-Looking at \@ref(fig:contribution-plots), one can see that 
+
+ <!-- QH: As I write this I notice a major issue with the axes labels on the contribution plots. Instead of substituting the original labels on a one to one basis with our English labels, our plots are just printing out our list of English labels in the order they are listed in our code. This has to be fixed. I then need to redo my description of the plots, since it is all wrong and based off of the eroneous labels. -->
+
+Looking at \@ref(fig:contribution-plots), the landmarks which contributed the most to each principal component were all located on the left side of our artefacts. This means that linking our initial flake measurements (maximum length, top width etc.) to either of the first two principal components is nearly impossible, as every one of our initial flake measurements (with the)
+
+one can see that there is no consistent pattern in which certain initial flake measurements  align closely with either the first or second principal components. Interestingly, the landmarks which contributed the most to each principal component were all located on the left side of our artefacts..
 
 
 
