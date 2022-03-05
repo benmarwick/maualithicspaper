@@ -415,6 +415,31 @@ for (i in 1:(nrow(PC2_contrib$data)/2)) {
 # here is a table that summarises the most important landmarks in the PCA
 # important_LMs_PC2[order(decreasing = T, important_LMs_PC2$PC2_contrib),]
 
+long_labels <- 
+  tribble(       ~long_labels,             ~short_labels, 
+                 "X Value: Top Left",         "1.X",
+                 "Y Value: Top Left",         "2.X",
+                 "X Value: Mid-Upper Left",    "...",
+                 "Y Value: Mid-Upper Left",    
+                 "X Value: Mid-Lower Left",    
+                 "Y Value: Mid-Lower Left",    
+                 "X Value: Bottom Left",      
+                 "Y Value: Bottom Left",      
+                 "X Value: Distal Tip",        
+                 "Y Value: Distal Tip",       
+                 "X Value: Bottom Right",     
+                 "Y Value: Bottom Right",     
+                 "X Value: Mid-Lower Right",   
+                 "Y Value: Mid-Lower Right",    
+                 "X Value: Mid-Upper Right",    
+                 "Y Value: Mid-Upper Right",    
+                 "X Value: Top Right",          
+                 "Y Value: Top Right",           
+                 )
+
+
+
+
 library(cowplot)
 
 plot_grid(PC1_contrib +
