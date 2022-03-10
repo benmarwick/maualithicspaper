@@ -1,5 +1,5 @@
 ---
-title: "Late Pleistocene stone artefact technology at Mau A, Yen Bai, Norther Vietnam"
+title: "Late Pleistocene stone artefact technology at Mau A, Yen Bai, Northern Vietnam"
 author:
   - Quinn Habedank:
       email: fl@oneoeurhg.edu
@@ -15,6 +15,8 @@ institute:
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
     bookdown::word_document2:
+      number_sections: false
+      global_numbering: true
       fig_caption: yes
       reference_docx: "../templates/template.docx" # Insert path for the DOCX file
       pandoc_args:
@@ -57,7 +59,6 @@ knitr::opts_chunk$set(
 
 # Abstract
 
-
 Flaked stone artefacts from Southeast Asia typically lack visually distinctive and strongly patterned forms, which can make them challenging to analyze and interpret. As a result, many of the cultural dynamics of Pleistocene hunter-gatherers of this region are poorly understood. We use 2D shape data to hypothesize a relationship between unretouched flake shape and assemblage reduction intensity at Mau A, an early Holocene archaeological site in northern Vietnam. We apply a Principal Components Analysis to the flake outlines to investigate shape variation throughout the reduction sequence (measured by dorsal cortex coverage). We find that flake shape varies by reduction stage, primarily through differences in flake length and width. Our results suggest that flake shape is sensitive to assemblage reduction intensity, and may give useful comparative insights when other attributes show little variation. These results are important for understanding stone artefact assemblages from Southeast Asia which often yield little variation when analysed with traditional approaches.
 
 ## Introduction
@@ -67,9 +68,9 @@ Flaked stone artefacts from Southeast Asia typically lack visually distinctive a
 - Approach used in the paper is a response to the lack of traditional typological categories in South East Asia
 -Further context from (McAdams et al, 2020)
 
-Here is a citation [@Marwick2017]
+Here is a citation [@Marwick2017] 
 
-<!-- BM: In this section we need to review previous work on investigating flake shape and identifying what affects flake shape, not just in Southeast Asia, but anywhere in the world -->
+<!-- BM: In this section we need to review in very precise detail, previous work on investigating flake shape and identifying what affects flake shape, not just in Southeast Asia, but anywhere in the world -->
 
 ## Excavations at Mau A
 
@@ -84,11 +85,11 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 <!-- BM: add a paragraph on MH's pollen analysis to indicate local palaeoenvironment, and add her as co-author-->
 
 
-<!-- QH: Trying to think of a way to make this figure work with the current figure numbering system we have in bookdown. Adding in a number that starts before 1.1 for now -->
 ## Methods
 
-![Figure 1.0. Schematic figure showing both the intial measurements that were used to generate our landmarks and the location of our landmarks on a hypothetical flake. A, B, C, D, and E are the top horizontal measurement, width at a quarter of the maximum length, maximum dimension length, width at a quarter of the maximum length, and width at three quarter of the maximum length respectively. Points 1 through 9 are all of the landmarks generated from measurements A through E.  ](./test_graphic.png)
-
+```{r, schematic-figure, fig.cap="Schematic figure showing both the intial measurements that were used to generate our landmarks and the location of our landmarks on a hypothetical flake. A, B, C, D, and E are the top horizontal measurement, width at a quarter of the maximum length, maximum dimension length, width at a quarter of the maximum length, and width at three quarter of the maximum length respectively. Points 1 through 9 are all of the landmarks generated from measurements A through E."}
+# knitr::include_graphics(here::here("analysis/flake-measurements-schematic-figure.png"))
+```
 
 Dorsal cortex percentages discretized upon standard cut points were used to create reduction categories. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). 
 
@@ -100,7 +101,6 @@ We initially recorded conventional linear dimension measurements, such as max di
 
 In analysing the landmarks we followed a conventional shape analysis workflow of Generalized Procrustes Analysis (GPA) followed by Principal Components Analysis (PCA) (Riede & Pedersen, 2018; Hoggard et al., 2019; Radinović & Kajtez, 2021; Okumura & Araujo 2014; Archer et al., 2021; Theska et al. 2020). We used GPA to normalize landmarks for size, orientation, and rotation, leaving only shape data. The normalized landmarks were then analysed by PCA, a form of exploratory data analysis. Principal Component Analysis takes the initial set of data and transforms and reduces them into a smaller set of variables, whist still preserving most of the variation. To explore the output we made PCA biplots of the first two Principal Components to visualize shape variation based upon secondary categorical variables, namely flake reduction categories, excavation units, and mass clusters. 
 
-
 ## Results
 
 <!-- BM: basic stats on raw materials and change in technology by depth to satisfy readers about the basic details of the assemblage, 
@@ -109,9 +109,7 @@ In analysing the landmarks we followed a conventional shape analysis workflow of
 
 <!-- BM: then previous more complex analysis on cores after QH's analysis of flakes -->
 
-
-
-## PCA Analysis on Dorsal Cortex Groups
+## Principal Components Analyses exploring flake shape variation
 
 ```{r}
 library(tidyverse)
@@ -216,23 +214,16 @@ sup.geo <- gpagen(lands_no_outliers,
 # Principal component analysis (PCA) using a base R function
 pca.geo <- prcomp(two.d.array(sup.geo$coord))
 
-# TODO: find a meaningful way to break this up into groups
-# pass these groups onto the PCA for drawing ellipses
-
-# this block of code below shows one way to discretize cortex percentage
-# into three groups. We need to explore other cutoffs, and other grouping
-# variables besides dorsal cortex. This code below is a good template for
-# starting these explorations
 ```
 
-```{r, fig.cap="PCA biplot for flake shape and dorsal cortex class."}
+
+```{r, mass-dorsal-grouping-and-cluster-analysis}
 
 ma_flakes_tr_with_groups <-
   ma_flakes_tr %>%
   slice(-c(1152,  606, 1147, 1125,  756 ,1023,  457,
                  813,  415,  877,  677, 1055,  239,  811,  601,  861,
                   794,  103 , 598 ,1110 , 906 ,  59 ,   4)) %>% 
- # filter(!is.na(dorsal_cortex_perc)) %>% 
   mutate(dorsal_cortext_group =
            case_when(
              between(dorsal_cortex_perc, 0, 0) ~ "Tertiary",
@@ -247,6 +238,15 @@ test_result_mass <- Ckmeans.1d.dp(ma_flakes_tr_with_groups$mass)
 ma_flakes_tr_with_groups <-
   ma_flakes_tr_with_groups %>% 
   mutate(mass_group = as.factor(test_result_mass$cluster))
+```
+
+
+```{r pca-cortex-groups}
+
+# to adjust the legend size for all three plots
+legend_key <- 0.25
+legend_title_size <- 6
+legend_text_size <- 4
 
 # ggplot2-based plot of the PCA results using a factoextra function
 cortex_biplot <- fviz_pca_ind(pca.geo,
@@ -257,15 +257,22 @@ cortex_biplot <- fviz_pca_ind(pca.geo,
              addEllipses = T, #adds ellipses or convex hulls
              ellipse.type = "convex", #convex hulls
              mean.point = F, #don’t show average point
-             legend.title = "Dorsal Cortex Class") +  #adjust accordingly)
-             coord_fixed(ratio = 1)+ #adjustable for variation-weighted plots
-  theme(plot.title = element_blank()) 
+             legend.title = "Dorsal\ncortex\nclass") +  #adjust accordingly)
+             coord_fixed(ratio = 1) + #adjustable for variation-weighted plots
+  theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
   
 ```
 
 
   
-```{r, fig.cap="PCA biplot for flake shape and excavation unit."}
+```{r, pca-excavation-unit}
 # Excavation unit PCA
 # ggplot2-based plot of the PCA results using a factoextra function
 excavation_unit_biplot <- fviz_pca_ind(pca.geo,
@@ -283,12 +290,19 @@ excavation_unit_biplot <- fviz_pca_ind(pca.geo,
                                         colour = "white"),
               plot.background = element_rect(fill='white',
                                        colour = "white")) +
-    theme(plot.title = element_blank())
+    theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
 ```
 
-<!-- This portion is lifted largely from the ISKM presentation. Might well reword it later, but it will do for now -->
 
-```{r, fig.cap="PCA biplot for flake shape and mass cluster groups"}
+
+```{r, pca-mass-cluster-groups}
 
 # Mass PCA
 # ggplot2-based plot of the PCA results using a factoextra function
@@ -307,206 +321,126 @@ mass_biplot <- fviz_pca_ind(pca.geo,
                                         colour = "white"),
               plot.background = element_rect(fill='white',
                                        colour = "white")) +
-    theme(plot.title = element_blank())
+      theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
 ```
 
-<!-- Below are my attempts to create a nice looking plot_grid of the three biplots. I was not able to get it to display properly, so I am just printing off each biplot individually all in a row as a temporary measure.  -->
-```{r}
+
+```{r three-pca-biplots, fig.cap="PCA biplots showing (A) variation in flake shape with dorsal cortex class, (B) depth below surface, and (C) mass cluster", fig.height=6}
 library(cowplot)
 
-
-
-# plot_grid(
-#  cortex_biplot, NULL, NULL,  excavation_unit_biplot,  mass_biplot, NULL,
-#  ncol = 2,
-#  labels = c("A", NULL, NULL,"B","C",NULL),
-#  label_size = 12,
-#  align = "v",
-#  rel_heights = c(1.1,
-#                  1,
-#                  1.1,
-#                  4,
-#                  1,
-#                  1),
-#  rel_widths = c(2,
-#                 2,
-#                 2,
-#                 4,
-#                 2,
-#                 1))
-  
-#cortex_biplot + theme(plot.margin = unit(c(3,3,3,3), "lines"))
-#excavation_unit_biplot
-#mass_biplot
-
-#plot_grid(
-#  plot_a, NULL, plot_b
-#  , nrow = 1
-#  , rel_widths = c(1, 0.05, 1)
-#  , labels = c("A", "", "B")
-#)
-
-    #      axis = "none",
-   #       scale = 1,
-   #       nrow = 3,
-    #      ncol = 1,
-   #       rel_widths = c(1,1,1),
-   #       rel_heights = c(1,1,1)
+plot_grid(
+ cortex_biplot,            # A
+ excavation_unit_biplot,   # B
+ mass_biplot,              # C
+ ncol = 1,
+ align = "v", 
+ axis = "lr",
+ labels = "AUTO")
 
 ```
 
-```{r cortex-biplot, fig.cap="PCA biplot for flake shape and dorsal cortex class."}
-cortex_biplot
-```
 
-```{r excavation-unit-biplot, fig.cap="PCA biplot for flake shape and excavation unit."}
-excavation_unit_biplot
-```
-
-```{r mass-biplot, fig.cap="PCA biplot for flake shape and mass cluster groups"}
-mass_biplot
-```
-
-Figure \@ref(fig:cortex-biplot) shows flake shape (as defined within the first two principal components) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slightly larger range of shape variation. Lastly, the tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
+Figure \@ref(fig:three-pca-biplots)A shows flake shape (as defined within the first two principal components) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slightly larger range of shape variation. Lastly, the tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
 
 Shape variation is not equal along both principal components. For flakes in all three dorsal cortex classes, the largest differences between each inter-nested is along the first principal component. Slight differences are seen along the second principal component, with an increasing amount of variation as one goes from primary to secondary to tertiary flakes, but these changes are minor when compared to the larger changes seen in the first principal component. 
 
-Figure \@ref(fig:excavation-unit-biplot) shows the flake shapes projected on the first two principal components, and colored according to the excavation unit that they were recovered from. Excavation unit one is near the surface, and unit 13 is near the base. The general picture here is that shape variation changes little through the deposit. Units with fewer flakes, such as 13, show lower shape variation.
+Figure \@ref(fig:three-pca-biplots)B shows the flake shapes projected on the first two principal components, and colored according to the excavation unit that they were recovered from. Excavation unit one is near the surface, and unit 13 is near the base. The general picture here is that shape variation changes little through the deposit. Units with fewer flakes, such as 13, show lower shape variation.
 
-In Figure \@ref(fig:mass-biplot) we see that greater shape variation is found in the lightest mass classes. The two lightest mass clusters, one and two, are in purple and blue respectively. These first two mass classes span the largest area on the biplot, signifying a larger degree of variation overall. 
+In Figure \@ref(fig:three-pca-biplots)C we see that greater shape variation is found in the lightest mass classes. The two lightest mass clusters, one and two, are in purple and blue respectively. These first two mass classes span the largest area on the biplot, signifying a larger degree of variation overall. 
 
-```{r contribution-plots, fig.cap="Plots showing the contribution of landmarks to the overall shape variation among flakes."}
+```{r contribution-plots, fig.cap="Plots showing the contribution of landmarks to the first two Principal Components (A: PC1, B: PC2) that summarise the overall shape variation among flakes. The dashed red horizontal line corresponds to the expected value if the contribution from each landmark was uniform.", fig.height = 2}
+
+
 # let's look at all the PCs and how much each original # variable contributes to them
 
-#view how much variation is described by each PC (ordered from PC1 to last PC)
-# enframe(100*pca.geo$sdev^2/sum(pca.geo$sdev^2))
-
-#get meaningful PCs
-# getMeaningfulPCs(pca.geo$sdev^2, n = length(lands_no_outliers_names))
-
-#estimate contribution (%) of landmarks on PC1
-PC1_contrib <- fviz_contrib(pca.geo, choice = "var", axes = 1)
-# take a look at the plot
-# PC1_contrib
-
-LM_contrib_PC1 <- data.frame(LM = rep(NA, nrow(PC1_contrib$data)/2),
-                             PC1_contrib = rep(NA, nrow(PC1_contrib$data)/2))
-for (i in 1:(nrow(PC1_contrib$data)/2)) {
-  LM_contrib_PC1$PC1_contrib[i] <- sum(PC1_contrib$data[(i*2-1):(i*2),]$contrib)
-  LM_contrib_PC1$LM[i] <- as.character(i)
-}
+# estimate contribution (%) of landmarks on PC1
+PC1_contrib <- fviz_contrib(pca.geo, 
+                            choice = "var", 
+                            axes = 1) +
+   theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
 
 # estimate contribution (%) of landmarks on PC2
-PC2_contrib <- fviz_contrib(pca.geo, choice = "var", axes = 2)
-# take a look at the plot
-# PC2_contrib
+PC2_contrib <- fviz_contrib(pca.geo, 
+                            choice = "var", 
+                            axes = 2) +
+  theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
 
-LM_contrib_PC2 <- data.frame(LM = rep(NA, nrow(PC2_contrib$data)/2),
-                             PC2_contrib = rep(NA, nrow(PC2_contrib$data)/2))
-for (i in 1:(nrow(PC2_contrib$data)/2)) {
-  LM_contrib_PC2$PC2_contrib[i] <- sum(PC2_contrib$data[(i*2-1):(i*2),]$contrib)
-  LM_contrib_PC2$LM[i] <- as.character(i)
-}
-
-# examine landmarks with major contribution (%) to PC1 and PC2
-# important_LMs_PC1 <- LM_contrib_PC1[LM_contrib_PC1$PC1_contrib > 100/(nrow(PC1_contrib$data)/2),]
-# important_LMs_PC1[order(decreasing = T, important_LMs_PC1$PC1_contrib),]
-# important_LMs_PC2 <- LM_contrib_PC2[LM_contrib_PC2$PC2_contrib > 100/(nrow(PC2_contrib$data)/2),]
-# here is a table that summarises the most important landmarks in the PCA
-# important_LMs_PC2[order(decreasing = T, important_LMs_PC2$PC2_contrib),]
-
+# this table will allow us to update the plot axis tick mark labels with human-readable
+# labels
 long_labels <- 
-  tribble(       ~long_labels,             ~short_labels, 
+  tibble::tribble(       ~long_labels,             ~short_labels, 
                  "X Value: Top Left",         "1.X",
                  "Y Value: Top Left",         "2.X",
                  "X Value: Mid-Upper Left",    "...",
-                 "Y Value: Mid-Upper Left",    
-                 "X Value: Mid-Lower Left",    
-                 "Y Value: Mid-Lower Left",    
-                 "X Value: Bottom Left",      
-                 "Y Value: Bottom Left",      
-                 "X Value: Distal Tip",        
-                 "Y Value: Distal Tip",       
-                 "X Value: Bottom Right",     
-                 "Y Value: Bottom Right",     
-                 "X Value: Mid-Lower Right",   
-                 "Y Value: Mid-Lower Right",    
-                 "X Value: Mid-Upper Right",    
-                 "Y Value: Mid-Upper Right",    
-                 "X Value: Top Right",          
-                 "Y Value: Top Right",           
+                 "Y Value: Mid-Upper Left",    "...", 
+                 "X Value: Mid-Lower Left",    "...", 
+                 "Y Value: Mid-Lower Left",    "...", 
+                 "X Value: Bottom Left",       "...",
+                 "Y Value: Bottom Left",      "...", 
+                 "X Value: Distal Tip",       "...",  
+                 "Y Value: Distal Tip",       "...", 
+                 "X Value: Bottom Right",     "...", 
+                 "Y Value: Bottom Right",     "...", 
+                 "X Value: Mid-Lower Right",   "...", 
+                 "Y Value: Mid-Lower Right",    "...", 
+                 "X Value: Mid-Upper Right",    "...", 
+                 "Y Value: Mid-Upper Right",    "...", 
+                 "X Value: Top Right",         "...",  
+                 "Y Value: Top Right",         "..."   
                  )
-
-
-
 
 library(cowplot)
 
 plot_grid(PC1_contrib +
-          scale_x_discrete(labels = 
-                           as.factor(c("X Value: Top Left",
-                          "Y Value: Top Left",
-                          "X Value: Mid-Upper Left",
-                          "Y Value: Mid-Upper Left",
-                          "X Value: Mid-Lower Left",
-                          "Y Value: Mid-Lower Left",
-                          "X Value: Bottom Left",
-                          "Y Value: Bottom Left",
-                          "X Value: Distal Tip",
-                          "Y Value: Distal Tip",
-                          "X Value: Bottom Right",
-                          "Y Value: Bottom Right",
-                          "X Value: Mid-Lower Right",
-                          "Y Value: Mid-Lower Right",
-                          "X Value: Mid-Upper Right",
-                          "Y Value: Mid-Upper Right",
-                          "X Value: Top Right",
-                          "Y Value: Top Right")))+
              theme(axis.text = element_text(size = 5)),
           PC2_contrib + 
-          scale_x_discrete(labels = 
-                           as.factor(c("X Value: Top Left",
-                           "Y Value: Top Left",
-                           "X Value: Mid-Upper Left",
-                           "Y Value: Mid-Upper Left",
-                           "X Value: Mid-Lower Left",
-                           "Y Value: Mid-Lower Left",
-                           "X Value: Bottom Left",
-                           "Y Value: Bottom Left",
-                           "X Value: Distal Tip",
-                           "Y Value: Distal Tip",
-                           "X Value: Bottom Right",
-                           "Y Value: Bottom Right",
-                           "X Value: Mid-Lower Right",
-                           "Y Value: Mid-Lower Right",
-                           "X Value: Mid-Upper Right",
-                           "Y Value: Mid-Upper Right",
-                           "X Value: Top Right",
-                           "Y Value: Top Right")))+
-             theme(axis.text = element_text(size = 5))
+             theme(axis.text = element_text(size = 5)),
+          labels = "AUTO"
   )
-
 
 ```
 
   
-Figure \@ref(fig:contribution-plots) shows the relative contribution of each of the original 18 variables put through our PCA. Looking at the supplementary table, we can see that the first principal component is primarily composed of the x-value for the distal tip landmark, with smaller contributions from the y-values from the two upper-most and mid-upper points. The second primary dimension is composed largely of the y-values for bottom-most and upper-most points. 
+Figure \@ref(fig:contribution-plots) shows the relative contribution of each of the original 18 variables put through our PCA. The first principal component is primarily composed of the x-value for the distal tip landmark, with smaller contributions from the y-values from the two upper-most and mid-upper points. The second principal component is composed largely of the y-values for bottom-most and upper-most points. 
+
+## Principal Components Analyses exploring core shape variation
+
+
 
 # Discussion
-  <!-- This portion partially consists of material from the ISKM presentation. Might want to reword things even more. Moreover, this section needs citations, which will bolster the overall content of this section. -->
 
-  Our data visualizations reveal some noteworthy trends regarding the degree of core reduction. Figure \@ref(fig:excavation-unit-biplot) shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:mass-biplot), where there is a high degree of shape variation in the lightest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:cortex-biplot), where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
+Flake shape variation generally shows limited correspondence with other factors. Figure \@ref(fig:excavation-unit-biplot)B shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:excavation-unit-biplot)C, where there is a high degree of shape variation in the lightest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:excavation-unit-biplot)A where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
 
- <!-- QH: As I write this I notice a major issue with the axes labels on the contribution plots. Instead of substituting the original labels on a one to one basis with our English labels, our plots are just printing out our list of English labels in the order they are listed in our code. This has to be fixed. I then need to redo my description of the plots, since it is all wrong and based off of the eroneous labels. -->
-
-Looking at \@ref(fig:contribution-plots), the landmarks which contributed the most to each principal component were all located on the left side of our artefacts. This means that linking our initial flake measurements (maximum length, top width etc.) to either of the first two principal components is nearly impossible, as every one of our initial flake measurements (with the)
-
-one can see that there is no consistent pattern in which certain initial flake measurements  align closely with either the first or second principal components. Interestingly, the landmarks which contributed the most to each principal component were all located on the left side of our artefacts..
-
-
+<<<<<<< HEAD
 The lack of distinct morphological groupings and the increased variability of shape in the smaller, tertiary flakes is consistent with previous studies. Other studies which investigated the morphology of flake outlines from South East Asia concluded that there is no significant relationship between flake outline and flake use (Borel et al., 2013; Borel et al., 2017). While our analysis not rely upon outlines, both outlines and landmarks are ultimately methods for measuring the morphology of flaked stone tools, and as such, the same models which explain outline variability can be cautiously applied to our analysis. The large amount of variability in flake shape, especially in the tertiary flakes, suggests that the knappers were not looking to create a specific shape of flake, with the amount of variability increasing as flakes are struck off of increasingly differed cores. This behavior is consistent with processes of expedient knapping, where a large number of flakes are created in a relatively free-form manner and useful flakes are picked up and used after knapping is finished (Holdaway & Douglass, 2012; McCall, 2012). Processes of expedient knapping suggest that stone tools were of secondary importance in the material culture of the knappers (Sillitoe & Hardy, 2003). Elsewhere it has been suggested stone tools were primarily used to create bamboo tools in South East Asia (Mijares, 2001). A reliance upon bamboo tools, with stone flakes merely being an intermediary to produce bamboo tools, would explain the great variability in the lithic assemblages at Mau A.
+=======
+ <!-- QH: As I write this I notice a major issue with the axes labels on the contribution plots. Instead of substituting the original labels on a one to one basis with our English labels, our plots are just printing out our list of English labels in the order they are listed in our code. This has to be fixed. I then need to redo my description of the plots, since it is all wrong and based off of the eroneous labels. -->
+>>>>>>> b23fc8ad7192e57df132e01c529a3443c23746f9
 
+Looking at \@ref(fig:contribution-plots), the landmarks which contributed the most to each principal component were all located on the left side of our artefacts. This means that linking our initial flake measurements (maximum length, top width etc.) to either of the first two principal components is nearly impossible, as every one of our initial flake measurements (with the) one can see that there is no consistent pattern in which certain initial flake measurements  align closely with either the first or second principal components. Interestingly, the landmarks which contributed the most to each principal component were all located on the left side of our artefacts..
 
+The lack of distinct morphological groupings and the increased variability of shape in the smaller, tertiary flakes is consistent with previous studies. Other studies which investigated the morphology of flake outlines from South East Asia concluded that there is no significant relationship between flake outline and flake use (Borel et al., 2013; Borel et al., 2017). <!-- summarise Borel et al. to show that we understand what they did and how they came to their conclusion, this might be better done in the introduction section  --> While our analysis does not rely upon outlines, both outlines and landmarks are methods for measuring the morphology of flaked stone tools, and as such, the same models which explain outline variability can be cautiously applied to our analysis. The high variability in flake shape, especially in the tertiary flakes, suggests that knappers were not looking to systematically create a small set of specific shapes of flake, with the amount of variability increasing as flakes are struck off of increasingly differed cores. This behavior is consistent with processes of expedient knapping, where a large number of flakes are created in a relatively free-form manner and useful flakes are picked up and used after knapping is finished (Holdaway & Douglass, 2012; McCall, 2012). Processes of expedient knapping suggest that stone tools were of secondary importance in the material culture of the knappers (Sillitoe & Hardy, 2003), relative to organic technologies. Mijares (2001) suggested stone tools were primarily used to create bamboo tools in South East Asia. A reliance upon bamboo tools, with stone flakes being an intermediary to produce bamboo tools, may explain the great variability in the lithic assemblages at Mau A.
 
 # Conclusion
 
@@ -532,7 +466,6 @@ Holdaway, S., & Douglass, M. (2012). A Twenty-First Century Archaeology of Stone
 
 McAdams, C., Morley, M. W., Fu, X., Kandyba, A. V., Derevianko, A. P., Nguyen, D. T., Doi, N. G., & Roberts, R. G. (2020). The Pleistocene geoarchaeology and geochronology of Con Moong Cave, North Vietnam: Site formation processes and hominin activity in the humid tropics. Geoarchaeology, 35(1), 72–97. https://doi.org/10.1002/gea.21758
 
-
 McCall, G. S. (2012). Ethnoarchaeology and the Organization of Lithic Technology. Journal of Archaeological Research, 20(2), 157–203. https://doi.org/10.1007/s10814-011-9056-z
 
 Mijares, A. S. B. (2001). An Expedient Lithic Technology in Northern Luzon (Philippines). Lithic Technology, 26(2), 138–152. https://doi.org/10.1080/01977261.2001.11720983
@@ -547,9 +480,7 @@ Riede, F., & Pedersen, J. B. (2018). Late Glacial Human Dispersals in Northern E
 
 Sillitoe, P., & Hardy, K. (2003). Living Lithics: Ethnoarchaeology in Highland Papua New Guinea. Antiquity, 77(297), 555–566. https://doi.org/10.1017/S0003598X00092619
 
-
 Song, M., & Zhong, H. (2020). Efficient weighted univariate clustering maps outstanding dysregulated genomic zones in human cancers. Bioinformatics, 36(20), 5027–5036. https://doi.org/10.1093/bioinformatics/btaa613
-
 
 Theska, T., Sieriebriennikov, B., Wighard, S. S., Werner, M. S., & Sommer, R. J. (2020). Geometric morphometrics of microscopic animals as exemplified by model nematodes. Nature Protocols, 15(8), 2611–2644. https://doi.org/10.1038/s41596-020-0347-z
  
