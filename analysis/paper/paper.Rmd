@@ -62,6 +62,7 @@ knitr::opts_chunk$set(
 Flaked stone artefacts from Southeast Asia typically lack visually distinctive and strongly patterned forms, which can make them challenging to analyze and interpret. As a result, many of the cultural dynamics of Pleistocene hunter-gatherers of this region are poorly understood. We use 2D shape data to hypothesize a relationship between unretouched flake shape and assemblage reduction intensity at Mau A, an early Holocene archaeological site in northern Vietnam. We apply a Principal Components Analysis to the flake outlines to investigate shape variation throughout the reduction sequence (measured by dorsal cortex coverage). We find that flake shape varies by reduction stage, primarily through differences in flake length and width. Our results suggest that flake shape is sensitive to assemblage reduction intensity, and may give useful comparative insights when other attributes show little variation. These results are important for understanding stone artefact assemblages from Southeast Asia which often yield little variation when analysed with traditional approaches.
 
 ## Introduction
+<!-- note, summarise Borel et al. to show that we understand what they did and how they came to their conclusion in intro  -->
 
 - Stone tools from South East Asia tend to lack distinctive typological categories (Mijares 2008; Borel et al. 2013; Borel et al. 2017)
 - The purpose of this study was to examine the relationship between flake shape and reduction intensity
