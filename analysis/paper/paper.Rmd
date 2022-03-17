@@ -413,7 +413,7 @@ long_labels <-
 
 library(cowplot)
 
-plot_grid(PC1_contrib +
+temp <- plot_grid(PC1_contrib +
              theme(axis.text = element_text(size = 5)),
           PC2_contrib + 
              theme(axis.text = element_text(size = 5)),
