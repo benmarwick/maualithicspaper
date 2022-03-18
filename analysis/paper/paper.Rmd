@@ -88,7 +88,7 @@ Four radiocarbon ages were obtained from isolated charcoal fragments in the depo
 
 ## Methods
 
-```{r, schematic-figure, fig.cap="Schematic figure showing both the intial measurements that were used to generate our landmarks and the location of our landmarks on a hypothetical flake. A, B, C, D, and E are the top horizontal measurement, width at a quarter of the maximum length, maximum dimension length, width at a quarter of the maximum length, and width at three quarter of the maximum length respectively. Points 1 through 9 are all of the landmarks generated from measurements A through E."}
+```{r, schematic-figure, fig.cap="Schematic figure showing the location of our landmarks on a hypothetical flake"}
 knitr::include_graphics(here::here("analysis/figures/flake-measurements-schematic-figure-temp.png"))
 ```
 
