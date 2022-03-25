@@ -71,6 +71,11 @@ The purpose of our study is to examine the relationship between shape and lithic
 ## Paleoenvironmental and Archaeological Context
 <!-- also make sure to provide a general context of paleolithic southeast asia. See previously suggested papers and look at context papers cited by Borel et al.  -->
 
+While early hominins reached Mainland Southeast Asia as early as 800 ka ago (Forestier et al., 2022), the 
+
+
+
+Mainland Southeast Asia 
 -Further context from (McAdams et al, 2020)
 
 Here is a citation [@Marwick2017] 
@@ -461,6 +466,8 @@ Borel, Antony, Richard Cornette, and Michel Baylac. 2017. “Stone Tool Forms an
 Borel, Antony, Claire Gaillard, Marie-Hélène Moncel, Robert Sala, Emmanuelle Pouydebat, Truman Simanjuntak, and François Sémah. 2013. “How to Interpret Informal Flakes Assemblages? Integrating Morphological Description, Usewear and Morphometric Analysis Gave Better Understanding of the Behaviors of Anatomically Modern Human from Song Terus (Indonesia).” Journal of Anthropological Archaeology 32 (4): 630–46. https://doi.org/10.1016/j.jaa.2013.03.002.
 
 Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Approaches: An Experimental Assessment." Lithic Technology 20, no. 2 (1995): 100-15. Accessed June 11, 2021. http://www.jstor.org/stable/23273168.
+
+Forestier, H., Zhou, Y., Sophady, H., Li, Y., Codeluppi, D., Auetrakulvit, P., & Zeitoun, V. (2022). The first lithic industry of mainland Southeast Asia: Evidence of the earliest hominin in a tropical context. L’Anthropologie, 126(1), 102996. https://doi.org/10.1016/j.anthro.2022.102996
 
 Hoggard, C. S., McNabb, J., & Cole, J. N. (2019). The Application of Elliptic Fourier Analysis in Understanding Biface Shape and Symmetry Through the British Acheulean. Journal of Paleolithic Archaeology, 2(2), 115–133. https://doi.org/10.1007/s41982-019-00024-6
 
