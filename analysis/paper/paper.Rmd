@@ -71,12 +71,14 @@ The purpose of our study is to examine the relationship between shape and lithic
 ## Paleoenvironmental and Archaeological Context
 <!-- also make sure to provide a general context of paleolithic southeast asia. See previously suggested papers and look at context papers cited by Borel et al.  -->
 
-While early hominins reached Mainland Southeast Asia as early as 800 ka ago (Forestier et al., 2022), the 
+While early hominins reached Mainland Southeast Asia as early as 800 ka ago (Forestier et al., 2022), the oldest skeletal remains of anatomically modern humans date to roughly 50-70 ka ago (Demeter et al., 2017; Shackelford et al., 2018).
+
+
 
 
 
 Mainland Southeast Asia 
--Further context from (McAdams et al, 2020)
+-Further context from (McAdams et al., 2020)
 
 Here is a citation [@Marwick2017] 
 
@@ -467,6 +469,8 @@ Borel, Antony, Claire Gaillard, Marie-Hélène Moncel, Robert Sala, Emmanuelle P
 
 Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Approaches: An Experimental Assessment." Lithic Technology 20, no. 2 (1995): 100-15. Accessed June 11, 2021. http://www.jstor.org/stable/23273168.
 
+Demeter, F., Shackelford, L., Westaway, K., Barnes, L., Duringer, P., Ponche, J.-L., Dumoncel, J., Sénégas, F., Sayavongkhamdy, T., Zhao, J.-X., Sichanthongtip, P., Patole-Edoumba, E., Dunn, T., Zachwieja, A., Coppens, Y., Willerslev, E., & Bacon, A.-M. (2017). Early Modern Humans from Tam Pà Ling, Laos: Fossil Review and Perspectives. Current Anthropology, 58(S17), S527–S538. https://doi.org/10.1086/694192
+
 Forestier, H., Zhou, Y., Sophady, H., Li, Y., Codeluppi, D., Auetrakulvit, P., & Zeitoun, V. (2022). The first lithic industry of mainland Southeast Asia: Evidence of the earliest hominin in a tropical context. L’Anthropologie, 126(1), 102996. https://doi.org/10.1016/j.anthro.2022.102996
 
 Hoggard, C. S., McNabb, J., & Cole, J. N. (2019). The Application of Elliptic Fourier Analysis in Understanding Biface Shape and Symmetry Through the British Acheulean. Journal of Paleolithic Archaeology, 2(2), 115–133. https://doi.org/10.1007/s41982-019-00024-6
@@ -486,6 +490,9 @@ Okumura, M., & Araujo, A. G. M. (2014). Long-term cultural stability in hunter�
 Radinović, M., & Kajtez, I. (2021). Outlining the knapping techniques: Assessment of the shape and regularity of prismatic blades using elliptic Fourier analysis. Journal of Archaeological Science: Reports, 38, 103079. https://doi.org/10.1016/j.jasrep.2021.103079
 
 Riede, F., & Pedersen, J. B. (2018). Late Glacial Human Dispersals in Northern Europe and Disequilibrium Dynamics. Human Ecology, 46(5), 621–632. https://doi.org/10.1007/s10745-017-9964-8
+
+Shackelford, L., Demeter, F., Westaway, K., Duringer, P., Ponche, J.-L., Sayavongkhamdy, T., Zhao, J.-X., Barnes, L., Boyon, M., Sichanthongtip, P., Sénégas, F., Patole-Edoumba, E., Coppens, Y., Dumoncel, J., & Bacon, A.-M. (2018). Additional evidence for early modern human morphological diversity in Southeast Asia at Tam Pa Ling, Laos. Quaternary International, 466, 93–106. https://doi.org/10.1016/j.quaint.2016.12.002
+
 
 Sillitoe, P., & Hardy, K. (2003). Living Lithics: Ethnoarchaeology in Highland Papua New Guinea. Antiquity, 77(297), 555–566. https://doi.org/10.1017/S0003598X00092619
 
