@@ -443,6 +443,13 @@ The lack of distinct morphological groupings and the increased variability of sh
 
 # Conclusion
 
+This work demonstrates the applicability of our new method in identifying the shape changes that accompany lithic reduction within a paleolithic MSEA assemblage. Our method for converting linear measurements into shape landmarks demonstrates a sensitivity to morphological diversity that opens the door for further applications. As brought up by Borel et al. (2017), raw linear measurements rarely capture the full breadth of variation seen in stone tools. Our approach of taking linear measurements and converting them into landmarks exhibits a greater sensitivity to shape variation than the use of linear measurements alone. This presents the opportunity for linear measurement data (where the measurements cover the full spectrum that we used) to be more usefully employed in the study of stone tool morphometrics. While generated landmarks might not be as sensitive as full outlines, linear measurements of stone tools are common in many archaeological studies. As a result, there are many opportunities to apply our method to existing linear measurement data. Further applications of our method in the study of MSEA paleolithic assemblages is also appropriate. 
+
+
+
+
+
+
 # Acknowledgements
 
 <!-- The following line inserts a page break  -->
