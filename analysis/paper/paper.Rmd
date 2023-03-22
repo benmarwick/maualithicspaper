@@ -1,6 +1,10 @@
 ---
 title: "Late Pleistocene stone artefact technology at Mau A, Yen Bai, Northern Vietnam"
 author:
+  - Pham Thanh Son
+      email: thanhson9119@gmail.com
+      institute: [IofA]
+      correspondence: true
   - Quinn Habedank:
       email: fl@oneoeurhg.edu
       institute: [UofO]
@@ -10,6 +14,7 @@ author:
       institute: [UofA]
       correspondence: false
 institute:
+  - IofA: Vien Khao co hoc
   - UofO: University of One Place
   - UofA: University of Another Place
 date: "`r format(Sys.time(), '%d %B, %Y')`"
