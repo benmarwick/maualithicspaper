@@ -16,7 +16,6 @@ author:
 institute:
   - IofA: Vien Khao co hoc
   - UofW: University of Washington 
-  - UofA: University of Another Place
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
     bookdown::word_document2:
