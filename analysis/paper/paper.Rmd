@@ -7,15 +7,15 @@ author:
       correspondence: true
   - Quinn Habedank:
       email: fl@oneoeurhg.edu
-      institute: [UofO]
+      institute: [UofW]
       correspondence: true
   - Ben Marwick:
-      email: fl@another.edu
-      institute: [UofA]
+      email: bmarwick@uw.edu
+      institute: [UofW]
       correspondence: false
 institute:
   - IofA: Vien Khao co hoc
-  - UofO: University of One Place
+  - UofW: University of Washington 
   - UofA: University of Another Place
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
