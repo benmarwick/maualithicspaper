@@ -1,7 +1,7 @@
 ---
 title: "Late Pleistocene stone artefact technology at Mau A, Yen Bai, Northern Vietnam"
 author:
-  - Pham Thanh Son
+  - Pham Thanh Son:
       email: thanhson9119@gmail.com
       institute: [IofA]
       correspondence: true
