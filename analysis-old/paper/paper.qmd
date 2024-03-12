@@ -45,19 +45,7 @@ Keywords: `r rmarkdown::metadata$keywords`
 
 Highlights: `r rmarkdown::metadata$highlights`
 
-<!-- The following code chunk defines some general settings how code chunks should behave. -->
 
-```{r setup, echo = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  warning = FALSE,
-  message = FALSE,
-  echo = FALSE,
-  comment = "#>",
-  fig.path = "../figures/",
-  dpi = 300
-)
-```
 
 <!-- The actual document text starts here: -->
 

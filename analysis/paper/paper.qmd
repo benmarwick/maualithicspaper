@@ -1,0 +1,534 @@
+---
+title: "Title Goes Here"
+author:
+  - Pham Thanh Son:
+      correspondence: "no"
+      email: thanhson9119@gmail.com
+      orcid: 0000-0003-1689-0557
+      institute:
+        - IofA
+  - Quinn Habedank:
+      correspondence: "no"
+      institute: UofW
+  - Seungki Kwak:
+      correspondence: "no"
+      institute: fosg
+      orcid: 0000-0003-1689-0559
+  - Ben Marwick:
+      correspondence: "yes"
+      orcid: 0000-0001-7879-4531
+      institute: UofW
+institute:
+  - UofW:
+      name: University of Washington 
+      address: Seattle, WA, USA
+  - IofA: Vien Khao co hoc
+title-block-published: "Last updated"  
+date: now
+date-format: long
+format: 
+  docx:
+    reference-doc: "../templates/template.docx" # Insert path for the DOCX file
+execute:
+  echo: false
+  warning: false
+  message: false
+  comment: "#>"
+  fig-path: "../figures/"
+  fig-dpi: 600
+filters:
+  - ../templates/scholarly-metadata.lua
+  - ../templates/author-info-blocks.lua
+  - ../templates/pagebreak.lua
+bibliography: references.bib
+csl: "../templates/journal-of-archaeological-science.csl" # Insert path for the bib-style
+abstract: |
+  Flaked stone artefacts from Southeast Asia typically lack visually distinctive and strongly patterned forms, which can make them challenging to analyze and interpret. As a result, many of the cultural dynamics of Pleistocene hunter-gatherers of this region are poorly understood. We use 2D shape data to hypothesize a relationship between unretouched flake shape and assemblage reduction intensity at Mau A, an early Holocene archaeological site in northern Vietnam. We apply a Principal Components Analysis to the flake landmarks to investigate shape variation throughout the reduction sequence (measured by dorsal cortex coverage). We find that flake shape varies by reduction stage, primarily through differences in flake length and width. Our results suggest that flake shape is sensitive to assemblage reduction intensity, and may give useful comparative insights when other attributes show little variation. These results are important for understanding stone artefact assemblages from Southeast Asia which often yield little variation when analysed with traditional approaches.
+keywords: |
+  keyword 1; keyword 2; keyword 3
+highlights: |
+  These are the highlights. 
+---
+
+<!-- This is the format for text comments that will be ignored during renderings. Do not put R code in these comments because it will not be ignored. -->
+
+<!-- With the following code you can access and display values from the yml header above. -->
+
+Keywords: `r rmarkdown::metadata$keywords`
+
+Highlights: `r rmarkdown::metadata$highlights`
+
+<!-- The actual document text starts here: -->
+
+<!-- BM: In this section we need to review in very precise detail, previous work on investigating flake shape and identifying what affects flake shape, especially the Borel papers, not just in Southeast Asia, but anywhere in the world, Look in Borel to see what papers they cite, and we should summarise the most relevant of those, e.g. the previous papers that are most similar to our project  -->
+
+<!-- also make sure to provide a general context of paleolithic southeast asia. See previously suggested papers and look at context papers cited by Borel et al.  -->
+
+Stone artefact manufacture in Mainland Southeast Asia (MSEA) may have began as early as 800 ka ago (Forestier et al., 2022), but many of these claims are contested (Marwick et al. 2022) and it is not until the Late Pleistocene that an indisputably strong signal of artefact production is evidence. The oldest skeletal remains of anatomically modern humans date to roughly 50-70 ka ago (Demeter et al., 2017; Shackelford et al., 2018). By the Last Glacial Maximum at MIS 2 many areas of the region were occupied by stone artefact using forager groups. In Northern Vietnam this time was characterized by sporadic human occupation of caves, localized differences in climate (with shifting cover of rain forest between the moist highlands and the variable lowlands) and the accumulation of mollusk shell middens (McAdams et al., 2020; 2022). Throughout the Late Pleistocene humans in MSEA would repeatedly reuse caves, accumulating numerous layers of discarded shells, ash, and lithics over multiple periods of occupation, with intervening periods of abandonment and occupation by faunal species such as bats (McAdams et al., 2020).
+
+Lithic technologies in the wider Southeast Asian region during this time are characterized by flaked stone tools which rarely have strongly patterned forms (Mijares 2008; Borel et al. 2013; Borel et al. 2017). This lack of clear typo-technological categories for flakes makes understanding the cultural dynamics of period difficult, relative to regions with more visually distinctive technologies such as northern Europe and parts of Africa and South America. In their attempt to ... Borel et al. (2013; 2017) have employed multivariate analysis of flake outlines in relation to other variables, such as the traces of use wear and retouching. They used elliptical Fourier analysis to approximate artefact shape outlines as sums of sine and cosine waves, with the coefficients from these sums being passed through Principal Component Analysis (Borel et al. 2013; 2017). This allowed the outlines of stone tools to be reduced and projected onto a two-dimensional plane, facilitating comparisons between tool morphology and other variables, such as use wear. Borel et al. (2017) choose to use of outlines rather than traditional linear measurements because the claims that often fail to cover the full variation in shape often seen in stone tools. 
+
+The purpose of our study is to examine the relationship between shape and lithic reduction in the assemblage at Mau A, northern Vietnam. We ask how flake shape correlates with reduction stage, artefact size and chronology. Our unique innovation consists of an R function whereby sets of linear measurements are converted into coordinates for shape landmarks. Our approach exhibits a sensitivity to morphological variation not seen with raw linear measurements, and can be regarded a method for more usefully employing existing linear measurement data in the study of stone tool morphometrics.  As far as we know, such an approach has not been undertaken before in the study of stone tool morphology; this paper is demonstration of this new approach. Our code can be examined at ()
+
+<!-- saving this for later:  Here is a citation [@Marwick2017]  -->
+## Excavations at Mau A
+
+Mau A is an open air archaeological site located on the banks above 5 m above the Red River in Yen Bai Province, Northern Vietnam, at the confluence of a small stream entering the river. Excavations were conducted in 2015 by a collaboration including researchers from the University of Washington, the Yen Bai Provincial Museum, the Institute of Archaeology in Hanoi, and the Vietnam National University - Social Sciences and Humanities University. An area of 2 x 2 m was excavated in 13 units of ten centimeters deep, through dense silty clay deposits to a depth of about 1.3 m below the surface. Subtle changes in stratigraphy indicated a slightly sloping deposit with four layers, consistent with reports of excavations in this location in the 1980s. A small amount of plastic and modern ceramics were found in the uppermost 0.1 m of deposit. The most striking feature identified during our excavations was the third layer, which is distinctive as very dense layer of flaked stone artefacts at about 0.6-1.1 m below the surface. No other features were identified during excavation.
+
+This dense lithic layer contained the majority of stone artefacts recovered from the site. The  chaîne opératoire of Mau A lithic technology is composed of unifacial shaping on long cobbles to produce sumatraloids (sumatralith-like pieces). The chaîne opératoire also involved the shaping of thick ovoid cobbles for the production of choppers or chopping-tools and half-cobbles (longitudinally split) that are shaped into tools with transverse cutting edges. Flake scar surfaces and edges are fresh and unweathered, indicating _in situ_ production and limited post-depositional movement. While previous work has claimed the Mau A assemblage is Son Vian (a precurser to Hoabinhian technology, characterised by unifacial flaking of blocky, cubic cobbles)
+
+<!-- BM: need to cite The Oxford Handbook of the Archaeology and Anthropology of Hunter-Gatherers, Ha Van Tan 1997, and the Proceedings of the Prehistoric Society -->
+
+Four radiocarbon ages were obtained from isolated charcoal fragments in the deposit. The charcoal was sampled to bracket the upper and lower boundaries of the dense lithic layer. <!-- add calibrated age numbers here --> The ages indicate a rapid accumulation process for this layer at the terminal Pleistocene. 
+
+<!-- BM: add a paragraph on MH's pollen analysis to indicate local palaeoenvironment, and add her as co-author-->
+
+
+
+# Methods
+
+```{r}
+#| label: schematic-figure
+#| fig-cap: "Schematic figure showing the location of our landmarks on a hypothetical flake"
+
+knitr::include_graphics(here::here("analysis/figures/flake-measurements-schematic-figure-temp.png"))
+```
+
+
+
+Dorsal cortex percentages discretized upon standard cut points were used to create reduction categories. Flakes with no dorsal cortex were categorized as tertiary flakes, those with up to a dorsal cortex percentage of 50% were considered secondary and those with a dorsal cortex value greater than 50% were considered primary (Bradbury & Carr 1995). 
+
+Mass clusters were generated using univariate k-means, with the end result being 6 mass clusters, with mass cluster 1 having the least mass on average and 6 having the greatest mass on average. Univariate k-means is a non-hierarchical clustering technique that creates a set number of groups equal to k, with points being assigned to groups in such a manner that the total distances between each point and mean of the group is minimized. The algorithm used for univariate k-means calculates the optimum number of groups. We used the Ckmeans.1d.dp package in R to perform our univariate k-means analysis (Wang & Song, 2011). The Ckmeans.1d.dp has been used for univariate clustering in applications outside of archaeology (Song & Zhong, 2020).
+
+We initially recorded conventional linear dimension measurements, such as max dimension length and width at various points along the max dimension length, from all flakes recovered from the excavation. Then we converted these linear dimensions into landmarks points to represent the shape of each artefact. The specific linear measurements used to create the 2D landmarks were the top horizontal measurement, the max dimension length, width at a quarter of the maximum length, width at half of the maximum length, and width at three quarters of the maximum length.
+
+<!-- BM: Because our approach here is very novel, most readers will struggle to understand it. To help them, I think we will need a table that defines each of our dimensions, and a figure that shows an example of our landmark points on a typical artefact -->
+
+In analysing the landmarks we followed a conventional shape analysis workflow of Generalized Procrustes Analysis (GPA) followed by Principal Components Analysis (PCA) (Riede & Pedersen, 2018; Hoggard et al., 2019; Radinović & Kajtez, 2021; Okumura & Araujo 2014; Archer et al., 2021; Theska et al. 2020). We used GPA to normalize landmarks for size, orientation, and rotation, leaving only shape data. The normalized landmarks were then analysed by PCA, a form of exploratory data analysis. Principal Component Analysis takes the initial set of data and transforms and reduces them into a smaller set of variables, whist still preserving most of the variation. To explore the output we made PCA biplots of the first two Principal Components to visualize shape variation based upon secondary categorical variables, namely flake reduction categories, excavation units, and mass clusters. 
+
+
+
+# Results
+
+
+<!-- BM: basic stats on raw materials and change in technology by depth to satisfy readers about the basic details of the assemblage, 
+
+<!-- BM: then QH's more complex analysis on flakes after the basic data -->
+
+<!-- BM: then previous more complex analysis on cores after QH's analysis of flakes -->
+
+## Principal Components Analyses exploring flake shape variation
+
+```{r}
+library(tidyverse)
+
+# import the data
+ma_flakes <- 
+  readxl::read_excel(here::here("analysis/data/raw_data/UW Fieldschool Mau A 2015 post_excavation_season_April_2016.xlsx"), col_names = FALSE)
+
+# transpose so that columns are variables, rows are individual artefacts
+# and set col data types so we can compute on them
+ma_flakes_tr <-
+ma_flakes %>%
+  pivot_longer(-`...1`)  %>%
+  pivot_wider(names_from = `...1`,
+              values_from = value) %>%
+  mutate_all(parse_guess) %>%
+  # fix a few bad guesses
+  mutate(across(c(mass,
+                thickness_at_0.25_width,
+                thickness_at_0.75_width,
+                dorsal_cortex_perc,
+                dorsal_scar_initiation_count),
+         parse_number))
+
+# export this data frame to use with our analysis
+write_csv(ma_flakes_tr,
+          here::here("analysis/data/derived_data/ma_flakes_tr.csv"))
+
+```
+
+```{r}
+# here we import the CSV file of caliper measurements, then compute on the
+# measurements to generate coordinates for a shape outline
+
+library(tidyverse)
+
+# import the data 
+ma_flakes_tr <- read_csv(here::here("analysis/data/derived_data/ma_flakes_tr.csv"))
+
+
+# custom function is from here, we have a local version in 999-functions.R
+# so we can work offline if we need to
+# https://gist.github.com/benmarwick/fac5754131c1fcc14d32b1658215f0e3
+
+source(here::here("analysis/code/999-functions.R"))
+
+polys <- polygon_shape_by_variables(data = ma_flakes_tr,       # our data frame
+                                    x = 'width_at_0.50_length',                # col for coord for x-axis of poly centers
+                                    y = 'max_dimension',       # col for coord for y-axis of poly centers
+
+                                    sf = 10,    # scale factor
+                                    top_horizontal_measurement =    'platform_width', # cols to use to compute poly verts
+                                    main_vertical_measurement =     'percussion_length',
+                                    upper_horizontal_measurement =  'width_at_0.25_length',
+                                    middle_horizontal_measurement = 'width_at_0.50_length',
+                                    bottom_horizontal_measurement = 'width_at_0.75_length')
+
+
+# make ready to convert to TPS format (thin plate spline)
+polys_lmk <-
+polys %>%
+  group_by(fill) %>%
+  mutate(landmark.number = row_number(fill),
+         specimen.ids  = fill) %>%
+  ungroup() %>%
+  select(-fill)
+
+# export as TPS file
+create_tps(polys_lmk,
+           here::here("analysis/data/derived_data/landmarks.tps"))
+
+```
+
+
+```{r}
+
+library(tidyverse)
+library(geomorph)
+library(Morpho)
+library(mclust)
+library(cluster)
+library(factoextra)
+
+lands <- readland.tps(
+  here::here("analysis/data/derived_data/landmarks.tps"),
+  specID = "ID",
+  warnmsg = FALSE)
+
+# drop outliers  identified in the previous script
+outlier_ids <- c(1152,  606, 1147, 1125,  756 ,1023,  457,
+                 813,  415,  877,  677, 1055,  239,  811,  601,  861,
+                  794,  103 , 598 ,1110 , 906 ,  59 ,   4)
+
+lands_no_outliers <- lands[, , -outlier_ids]
+lands_no_outliers_names <- dimnames(lands_no_outliers)[[3]]
+
+sup.geo <- gpagen(lands_no_outliers,  
+                  ProcD=F, 
+                  Proj = T,
+                  print.progress = FALSE)
+
+# Principal component analysis (PCA) using a base R function
+pca.geo <- prcomp(two.d.array(sup.geo$coord))
+
+```
+
+
+```{r, mass-dorsal-grouping-and-cluster-analysis}
+
+ma_flakes_tr_with_groups <-
+  ma_flakes_tr %>%
+  slice(-c(1152,  606, 1147, 1125,  756 ,1023,  457,
+                 813,  415,  877,  677, 1055,  239,  811,  601,  861,
+                  794,  103 , 598 ,1110 , 906 ,  59 ,   4)) %>% 
+  mutate(dorsal_cortext_group =
+           case_when(
+             between(dorsal_cortex_perc, 0, 0) ~ "Tertiary",
+             between(dorsal_cortex_perc, 1, 50) ~ "Secondary",
+             between(dorsal_cortex_perc, 51, 100) ~ "Primary"
+           ))
+
+library(Ckmeans.1d.dp)
+
+test_result_mass <- Ckmeans.1d.dp(ma_flakes_tr_with_groups$mass)
+
+ma_flakes_tr_with_groups <-
+  ma_flakes_tr_with_groups %>% 
+  mutate(mass_group = as.factor(test_result_mass$cluster))
+```
+
+
+```{r pca-cortex-groups}
+
+# to adjust the legend size for all three plots
+legend_key <- 0.25
+legend_title_size <- 6
+legend_text_size <- 4
+
+# ggplot2-based plot of the PCA results using a factoextra function
+cortex_biplot <- fviz_pca_ind(pca.geo,
+             geom.ind = "point", # show points without labels
+            #  line below sets the grouping column for colouring the points
+             habillage = ma_flakes_tr_with_groups$dorsal_cortext_group,
+             palette = "npg", #color palette, adjust to preferences
+             addEllipses = T, #adds ellipses or convex hulls
+             ellipse.type = "convex", #convex hulls
+             mean.point = F, #don’t show average point
+             legend.title = "Dorsal\ncortex\nclass") +  #adjust accordingly)
+             coord_fixed(ratio = 1) + #adjustable for variation-weighted plots
+  theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
+  
+```
+
+
+  
+```{r, pca-excavation-unit}
+# Excavation unit PCA
+# ggplot2-based plot of the PCA results using a factoextra function
+excavation_unit_biplot <- fviz_pca_ind(pca.geo,
+             geom.ind = "point", # show points without labels
+            #  line below sets the grouping column for colouring the points
+             habillage = as.factor(ma_flakes_tr_with_groups$Unit),
+             palette = viridis::cividis(13), # color palette, adjust to preferences
+             addEllipses = T, #adds ellipses or convex hulls
+             ellipse.type = "convex", #convex hulls
+             mean.point = F, #don’t show average point
+             legend.title = "Excavation\nunit",
+             title = "Change over time in flake shape") +  #adjust accordingly)
+             coord_fixed(ratio = 1)  + #adjustable for variation-weighted plots
+             theme(panel.background = element_rect(fill='white',
+                                        colour = "white"),
+              plot.background = element_rect(fill='white',
+                                       colour = "white")) +
+    theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
+```
+
+
+
+```{r, pca-mass-cluster-groups}
+
+# Mass PCA
+# ggplot2-based plot of the PCA results using a factoextra function
+mass_biplot <- fviz_pca_ind(pca.geo,
+             geom.ind = "point", # show points without labels
+            #  line below sets the grouping column for colouring the points
+             habillage = ma_flakes_tr_with_groups$mass_group,
+             palette = viridis::viridis(6), #color palette, adjust to preferences
+             addEllipses = T, #adds ellipses or convex hulls
+             ellipse.type = "convex", #convex hulls
+             mean.point = F, #don’t show average point
+             legend.title = "Mass\ncluster",  #adjust accordingly
+            title = "Flake mass and flake shape") + 
+             coord_fixed(ratio = 1) + #adjustable for variation-weighted plots
+             theme(panel.background = element_rect(fill='white',
+                                        colour = "white"),
+              plot.background = element_rect(fill='white',
+                                       colour = "white")) +
+      theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
+```
+
+
+```{r three-pca-biplots, fig.cap="PCA biplots showing (A) variation in flake shape with dorsal cortex class, (B) depth below surface, and (C) mass cluster", fig.height=6}
+library(cowplot)
+
+plot_grid(
+ cortex_biplot,            # A
+ excavation_unit_biplot,   # B
+ mass_biplot,              # C
+ ncol = 1,
+ align = "v", 
+ axis = "lr",
+ labels = "AUTO")
+
+```
+
+
+Figure \@ref(fig:three-pca-biplots)A shows flake shape (as defined within the first two principal components) in relation to dorsal cortex class. The primary class of dorsal cortex, representing initial, unretouched flakes in the reduction sequence, has the smallest range of shape variation. Secondary flakes, which have been retouched and thus have less dorsal cortex than the primary flakes, show a slightly larger range of shape variation. Lastly, the tertiary flakes at the end of the reduction sequence show the greatest amount of shape variation. 
+
+Shape variation is not equal along both principal components. For flakes in all three dorsal cortex classes, the largest differences between each inter-nested is along the first principal component. Slight differences are seen along the second principal component, with an increasing amount of variation as one goes from primary to secondary to tertiary flakes, but these changes are minor when compared to the larger changes seen in the first principal component. 
+
+Figure \@ref(fig:three-pca-biplots)B shows the flake shapes projected on the first two principal components, and colored according to the excavation unit that they were recovered from. Excavation unit one is near the surface, and unit 13 is near the base. The general picture here is that shape variation changes little through the deposit. Units with fewer flakes, such as 13, show lower shape variation.
+
+In Figure \@ref(fig:three-pca-biplots)C we see that greater shape variation is found in the lightest mass classes. The two lightest mass clusters, one and two, are in purple and blue respectively. These first two mass classes span the largest area on the biplot, signifying a larger degree of variation overall. 
+
+```{r contribution-plots, fig.cap="Plots showing the contribution of landmarks to the first two Principal Components (A: PC1, B: PC2) that summarise the overall shape variation among flakes. The dashed red horizontal line corresponds to the expected value if the contribution from each landmark was uniform.", fig.height = 2}
+
+
+# let's look at all the PCs and how much each original # variable contributes to them
+
+# estimate contribution (%) of landmarks on PC1
+PC1_contrib <- fviz_contrib(pca.geo, 
+                            choice = "var", 
+                            axes = 1) +
+   theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
+
+# estimate contribution (%) of landmarks on PC2
+PC2_contrib <- fviz_contrib(pca.geo, 
+                            choice = "var", 
+                            axes = 2) +
+  theme(plot.title = element_blank(),
+        axis.text = element_text(size = legend_text_size),
+        axis.title = element_text(size = legend_title_size),
+        legend.key.size = unit(legend_key, 'cm'), #change legend key size
+        legend.key.height = unit(legend_key, 'cm'), #change legend key height
+        legend.key.width = unit(legend_key, 'cm'), #change legend key width
+        legend.title = element_text(size = legend_title_size), #change legend title font size
+        legend.text = element_text(size = legend_text_size)) 
+
+# this table will allow us to update the plot axis tick mark labels with human-readable
+# labels
+long_labels <- 
+  tibble::tribble(       ~long_labels,             ~short_labels, 
+                 "X Value: Top Left",         "1.X",
+                 "Y Value: Top Left",         "1.Y",
+                 "X Value: Mid-Upper Left",   "2.X",
+                 "Y Value: Mid-Upper Left",   "2.Y", 
+                 "X Value: Mid-Lower Left",   "3.X", 
+                 "Y Value: Mid-Lower Left",   "3.Y", 
+                 "X Value: Bottom Left",      "4.X",
+                 "Y Value: Bottom Left",      "4.Y", 
+                 "X Value: Distal Tip",       "5.X",  
+                 "Y Value: Distal Tip",       "5.Y", 
+                 "X Value: Bottom Right",     "6.X", 
+                 "Y Value: Bottom Right",     "6.Y", 
+                 "X Value: Mid-Lower Right",   "7.X", 
+                 "Y Value: Mid-Lower Right",    "7.Y", 
+                 "X Value: Mid-Upper Right",    "8.X", 
+                 "Y Value: Mid-Upper Right",    "8.Y", 
+                 "X Value: Top Right",         "9.X",  
+                 "Y Value: Top Right",         "9.Y"   
+                 )
+
+library(cowplot)
+
+plot_grid(PC1_contrib +
+             theme(axis.text = element_text(size = 5)),
+          PC2_contrib + 
+             theme(axis.text = element_text(size = 5)),
+          labels = c("First Principal Component",
+                     "Second Principal Component"),
+          label_size = 6,
+          hjust = -0.3)
+
+
+
+```
+
+  
+Figure \@ref(fig:contribution-plots) shows the relative contribution of each of the original 18 variables put through our PCA. The first principal component is primarily composed of the x-value for the distal tip landmark, with smaller contributions from the y-values from the two upper-most and mid-upper points. The second principal component is composed largely of the y-values for bottom-most and upper-most points. 
+
+## Principal Components Analyses exploring core shape variation
+
+
+# Discussion
+
+Flake shape variation generally shows limited correspondence with other factors. Figure \@ref(fig:excavation-unit-biplot)B shows very little variation over time, with lots of overlap between groups in the biplot. Units with fewer flakes, such as 13, show lower shape variation. This generally confirms our conclusion from the radiocarbon ages that the deposit accumulated relatively quickly, and the assemblage represents knapping events occurring at a similar time with little, if any perceptible change over time. By contrast, a more definitive difference between groups in seen in Figure \@ref(fig:excavation-unit-biplot)C, where there is a high degree of shape variation in the lightest flakes. This reflects the production of different types and shapes of cores as the flakes become smaller and thus lighter. This is further supported by Figure \@ref(fig:excavation-unit-biplot)A where tertiary flakes with little dorsal cortex show the highest shape variation. This supports our interpretation of the previous result, with flakes from later in the reduction process showing greater shape variation as different types of cores were produced at the site. 
+
+The lack of distinct morphological groupings and the increased variability of shape in the smaller, tertiary flakes is consistent with previous studies. Other studies which investigated the morphology of flake outlines from South East Asia concluded that there is no significant relationship between flake outline and flake use (Borel et al., 2013; Borel et al., 2017). While our analysis not rely upon outlines, both outlines and landmarks are ultimately methods for measuring the morphology of flaked stone tools, and as such, the same models which explain outline variability can be cautiously applied to our analysis. The large amount of variability in flake shape, especially in the tertiary flakes, suggests that the knappers were not looking to create a specific shape of flake, with the amount of variability increasing as flakes are struck off of increasingly differed cores. This behavior is consistent with processes of expedient knapping, where a large number of flakes are created in a relatively free-form manner and useful flakes are picked up and used after knapping is finished (Holdaway & Douglass, 2012; McCall, 2012). Processes of expedient knapping suggest that stone tools were of secondary importance in the material culture of the knappers (Sillitoe & Hardy, 2003). Elsewhere it has been suggested stone tools were primarily used to create bamboo tools in South East Asia (Mijares, 2001). A reliance upon bamboo tools, with stone flakes merely being an intermediary to produce bamboo tools, would explain the great variability in the lithic assemblages at Mau A.
+
+In Figure \@ref(fig:contribution-plots), we can see that the distal tip, the top right, and the top left landmarks are the top three contributors to each principal component. We interpret this as indicating that the first principal component is primarily influenced by artefact length and platform width. The second principal component primarily consists of the bottom left, bottom right, top left, and top right landmarks; we interpret this as the second principal component representing surface area of the artefact. 
+
+The lack of distinct morphological groupings and the increased variability of shape in the smaller, tertiary flakes is consistent with previous studies. Other studies which investigated the morphology of flake outlines from South East Asia concluded that there is no significant relationship between flake outline and flake use (Borel et al., 2013; Borel et al., 2017). <!-- summarise Borel et al. to show that we understand what they did and how they came to their conclusion, this might be better done in the introduction section  --> While our analysis does not rely upon outlines, both outlines and landmarks are methods for measuring the morphology of flaked stone tools, and as such, the same models which explain outline variability can be cautiously applied to our analysis. The high variability in flake shape, especially in the tertiary flakes, suggests that knappers were not looking to systematically create a small set of specific shapes of flake, with the amount of variability increasing as flakes are struck off of increasingly differed cores. It is also possible that the knappers were aiming to create a wide range of shapes, or that a great number of flakes were created of certain shapes with considerable variation between flakes. This behavior is consistent with processes of expedient knapping, where a large number of flakes are created in a relatively free-form manner and useful flakes are picked up and used after knapping is finished (Holdaway & Douglass, 2012; McCall, 2012). Processes of expedient knapping suggest that stone tools were of secondary importance in the material culture of the knappers (Sillitoe & Hardy, 2003), relative to organic technologies. Mijares (2001) suggested stone tools were primarily used to create bamboo tools in South East Asia. A reliance upon bamboo tools, with stone flakes being an intermediary to produce bamboo tools, may explain the great variability in the lithic assemblages at Mau A.
+
+# Conclusion
+
+This work demonstrates the applicability of our new method in identifying the shape changes that accompany lithic reduction within a paleolithic MSEA assemblage. Our method for converting linear measurements into shape landmarks demonstrates a sensitivity to morphological diversity that opens the door for further applications. Our finding support the conclusions of Borel et al. (2017) that linear measurements rarely capture the full breadth of variation seen in stone tools. Our approach of taking linear measurements and converting them into landmarks gives more options for examining the sensitivity of shape variation to a variety of factors compared to the use of linear measurements alone. While the generated landmarks that we use here might not be as sensitive as full artefact outlines, linear measurements of stone tools are simple to collect with basic equipment. As a result, there are many opportunities to apply our method to existing linear measurement data on legacy assemblage. 
+
+# Acknowledgements
+
+<!-- The following line inserts a page break  -->
+
+\newpage
+
+# References
+
+
+Archer, W., Djakovic, I., Brenet, M., Bourguignon, L., Presnyakova, D., Schlager, S., Soressi, M., & McPherron, S. P. (2021). Quantifying differences in hominin flaking technologies with 3D shape analysis. Journal of Human Evolution, 150, 102912. https://doi.org/10.1016/j.jhevol.2020.102912
+
+Borel, Antony, Richard Cornette, and Michel Baylac. 2017. “Stone Tool Forms and Functions: A Morphometric Analysis of Modern Humans’ Stone Tools From Song Terus Cave (Java, Indonesia).” Archaeometry 59 (3): 455–71. https://doi.org/10.1111/arcm.12264.
+
+Borel, Antony, Claire Gaillard, Marie-Hélène Moncel, Robert Sala, Emmanuelle Pouydebat, Truman Simanjuntak, and François Sémah. 2013. “How to Interpret Informal Flakes Assemblages? Integrating Morphological Description, Usewear and Morphometric Analysis Gave Better Understanding of the Behaviors of Anatomically Modern Human from Song Terus (Indonesia).” Journal of Anthropological Archaeology 32 (4): 630–46. https://doi.org/10.1016/j.jaa.2013.03.002.
+
+Bradbury, Andrew P., and Philip J. Carr. "Flake Typologies and Alternative Approaches: An Experimental Assessment." Lithic Technology 20, no. 2 (1995): 100-15. Accessed June 11, 2021. http://www.jstor.org/stable/23273168.
+
+Demeter, F., Shackelford, L., Westaway, K., Barnes, L., Duringer, P., Ponche, J.-L., Dumoncel, J., Sénégas, F., Sayavongkhamdy, T., Zhao, J.-X., Sichanthongtip, P., Patole-Edoumba, E., Dunn, T., Zachwieja, A., Coppens, Y., Willerslev, E., & Bacon, A.-M. (2017). Early Modern Humans from Tam Pà Ling, Laos: Fossil Review and Perspectives. Current Anthropology, 58(S17), S527–S538. https://doi.org/10.1086/694192
+
+Forestier, H., Zhou, Y., Sophady, H., Li, Y., Codeluppi, D., Auetrakulvit, P., & Zeitoun, V. (2022). The first lithic industry of mainland Southeast Asia: Evidence of the earliest hominin in a tropical context. L’Anthropologie, 126(1), 102996. https://doi.org/10.1016/j.anthro.2022.102996
+
+Hoggard, C. S., McNabb, J., & Cole, J. N. (2019). The Application of Elliptic Fourier Analysis in Understanding Biface Shape and Symmetry Through the British Acheulean. Journal of Paleolithic Archaeology, 2(2), 115–133. https://doi.org/10.1007/s41982-019-00024-6
+
+Holdaway, S., & Douglass, M. (2012). A Twenty-First Century Archaeology of Stone Artifacts. Journal of Archaeological Method and Theory, 19(1), 101–131. https://doi.org/10.1007/s10816-011-9103-6
+
+McAdams, C., Morley, M. W., Fu, X., Kandyba, A. V., Derevianko, A. P., Nguyen, D. T., Doi, N. G., & Roberts, R. G. (2020). The Pleistocene geoarchaeology and geochronology of Con Moong Cave, North Vietnam: Site formation processes and hominin activity in the humid tropics. Geoarchaeology, 35(1), 72–97. https://doi.org/10.1002/gea.21758
+
+McAdams, C., Morley, M. W., Fu, X., Kandyba, A. V., Derevianko, A. P., Nguyen, D. T., Doi, N. G., & Roberts, R. G. (2022). Late Pleistocene shell midden microstratigraphy indicates a complex history of human–environment interactions in the uplands of northern Vietnam. Philosophical Transactions of the Royal Society B: Biological Sciences, 377(1849), 20200493. https://doi.org/10.1098/rstb.2020.0493
+
+McCall, G. S. (2012). Ethnoarchaeology and the Organization of Lithic Technology. Journal of Archaeological Research, 20(2), 157–203. https://doi.org/10.1007/s10814-011-9056-z
+
+Mijares, A. S. B. (2001). An Expedient Lithic Technology in Northern Luzon (Philippines). Lithic Technology, 26(2), 138–152. https://doi.org/10.1080/01977261.2001.11720983
+
+Mijares, A. 2008. “The late pleistocene to early holocene foragers of northern Luzon.”		Bulletin of the Indo-Pacific Prehistory Association 28: 99-107.
+
+Okumura, M., & Araujo, A. G. M. (2014). Long-term cultural stability in hunter–gatherers: A case study using traditional and geometric morphometric analysis of lithic stemmed bifacial points from Southern Brazil. Journal of Archaeological Science, 45, 59–71. https://doi.org/10.1016/j.jas.2014.02.009
+
+Radinović, M., & Kajtez, I. (2021). Outlining the knapping techniques: Assessment of the shape and regularity of prismatic blades using elliptic Fourier analysis. Journal of Archaeological Science: Reports, 38, 103079. https://doi.org/10.1016/j.jasrep.2021.103079
+
+Riede, F., & Pedersen, J. B. (2018). Late Glacial Human Dispersals in Northern Europe and Disequilibrium Dynamics. Human Ecology, 46(5), 621–632. https://doi.org/10.1007/s10745-017-9964-8
+
+Shackelford, L., Demeter, F., Westaway, K., Duringer, P., Ponche, J.-L., Sayavongkhamdy, T., Zhao, J.-X., Barnes, L., Boyon, M., Sichanthongtip, P., Sénégas, F., Patole-Edoumba, E., Coppens, Y., Dumoncel, J., & Bacon, A.-M. (2018). Additional evidence for early modern human morphological diversity in Southeast Asia at Tam Pa Ling, Laos. Quaternary International, 466, 93–106. https://doi.org/10.1016/j.quaint.2016.12.002
+
+
+Sillitoe, P., & Hardy, K. (2003). Living Lithics: Ethnoarchaeology in Highland Papua New Guinea. Antiquity, 77(297), 555–566. https://doi.org/10.1017/S0003598X00092619
+
+Song, M., & Zhong, H. (2020). Efficient weighted univariate clustering maps outstanding dysregulated genomic zones in human cancers. Bioinformatics, 36(20), 5027–5036. https://doi.org/10.1093/bioinformatics/btaa613
+
+Theska, T., Sieriebriennikov, B., Wighard, S. S., Werner, M. S., & Sommer, R. J. (2020). Geometric morphometrics of microscopic animals as exemplified by model nematodes. Nature Protocols, 15(8), 2611–2644. https://doi.org/10.1038/s41596-020-0347-z
+ 
+Wang, H., & Song, M. (2011). Ckmeans.1d.dp: Optimal k-means Clustering in One Dimension by Dynamic Programming. The R Journal, 3(2), 29–33.
+
+
+
+<!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
+
+::: {#refs}
+:::
+
+\newpage
+
+### Colophon
+
+This report was generated on `r Sys.time()` using the following computational environment and dependencies:
+
+```{r}
+#| label: colophon
+#| cache: false
+
+# which R packages and versions?
+if ("devtools" %in% installed.packages()) devtools::session_info()
+```
+
+The current Git commit details are:
+
+```{r}
+# what commit is this file at? 
+if ("git2r" %in% installed.packages() & git2r::in_repository(path = ".")) git2r::repository(here::here())  
+```
