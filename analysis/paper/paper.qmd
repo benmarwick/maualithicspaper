@@ -6,7 +6,15 @@ author:
       orcid: 0000-0003-1689-0557
       institute:
         - IofA
+  - Nguyen Thi Mai Huong:
+      correspondence: "no"
+      orcid: 0000-0003-1689-0557
+      institute:
+        - IofA
   - Quinn Habedank:
+      correspondence: "no"
+      institute: UofW
+  - Isabelle Ami Osuna:
       correspondence: "no"
       institute: UofW
   - Seungki Kwak:
@@ -65,25 +73,109 @@ While the timing of first stone artefact technologies in mainland Southeast Asia
 
 Borel et al. [-@borelHowInterpretInformal2013; -@borelStoneToolForms2017] employed multivariate analysis of flake outlines in relation to other variables, such as traces of usewear and retouch. They used elliptical Fourier analysis to quantify artefact shape outlines, and summarised shape differences and similarities with Principal Component Analysis. This allowed the outlines of stone tools to be reduced and projected onto a two-dimensional plane, facilitating comparisons between tool morphology and other variables. Borel et al. use outlines rather than traditional linear measurements because these often fail to cover the full variation in shape often seen in stone tools. They found that there was no difference in shape between retouched and unretouched artefacts, and no correlation between a specific overall shape and any specific function indicated by usewear analysis [@borelHowInterpretInformal2013; @borelStoneToolForms2017].
 
-We build on this pioneering work to explore relationships between shape and lithic reduction in mSEA. In some traditions of lithic analysis, reduction sequence analysis can mean reconstructing a detailed narrative of a single artefact or handful or artefacts, based on the sequence of flake removals indicated by flake scars on the artefact [e.g. @yinghuaNewTechnologicalAnalysis2021 ]. There are two important limitations to this approach. First is that it is wasteful because the majority of the assemblage (e.g. the unretouched flakes) are excluded and the information contained in these pieces is not utlized. Ethical fieldwork should prioritize maximizing information gained while minimizing destruction. Second is that it historically has shown limited potential to provide data to engage with broader anthropological questions about relationships between technology, mobility and risk in hunter-gatherer groups. Tackling these questions has been been highly productive in many parts of the world [@holdawaySurfaceStoneArtifact2020; @goldsteinHuntergathererTechnologicalOrganization2022] To address these limitations, our concept of lithic reduction follows Shott "To improve its practice, TO must treat curation as a continuous variable not categorical state, assimilate the time-averaged quality of assemblages as accumulations, reconcile the synchronic behavior it explains with the diachronic accumulations it analyzes, accommodate history as well as adaptation, and transform itself from narrative device to a body of specified, predictive theory. "
+We build on this pioneering work to explore relationships between shape and lithic reduction in mSEA. In some traditions of lithic analysis, reduction sequence analysis can mean reconstructing a detailed narrative of a single artefact or handful or artefacts, based on the sequence of flake removals indicated by flake scars on the artefact [e.g. @yinghuaNewTechnologicalAnalysis2021]. There are two important limitations to this approach. First is that it is wasteful because the majority of the assemblage (e.g. the unretouched flakes) are excluded and the information contained in these pieces is not utilized. Ethical fieldwork should prioritize maximizing information gained while minimizing destruction through excavation. Second is that it historically has shown limited potential to provide data to engage with broader anthropological questions about relationships between technology, mobility and risk in hunter-gatherer groups. Tackling these questions has been been highly productive in many parts of the world [@holdawaySurfaceStoneArtifact2020; @goldsteinHuntergathererTechnologicalOrganization2022] To address these limitations, our concept of lithic reduction follows @shottCostsBenefitsTechnological2018 who argues that lithic analysts should "treat curation as a continuous variable, not categorical state, assimilate the time-averaged quality of assemblages as accumulations, reconcile the synchronic behavior it explains with the diachronic accumulations it analyzes, accommodate history as well as adaptation, and transform itself from narrative device to a body of specified, predictive theory". Heeding this call, we investigate artefact shape as a continuous variable and investigate how it varies as cores are increasingly reduced in an assembalge representing a relatively short period.
 
-reduction analysis in mSEA is sometimes Inspired by this work, we explore shape-based methods for characterising flake and core variability in mSEA.
-
-The purpose of our study is to examine the relationship between shape and lithic reduction in the assemblage at Mau A, northern Vietnam. We ask how flake shape correlates with reduction stage, artefact size and chronology. Our unique innovation consists of an R function whereby sets of linear measurements are converted into coordinates for shape landmarks. Our approach exhibits a sensitivity to morphological variation not seen with raw linear measurements, and can be regarded a method for more usefully employing existing linear measurement data in the study of stone tool morphometrics. As far as we know, such an approach has not been undertaken before in the study of stone tool morphology; this paper is demonstration of this new approach. Our code can be examined at ()
-
-<!-- saving this for later:  Here is a citation [@Marwick2017]  -->
+The goal of our study is to examine the relationship between shape and lithic reduction in the assemblage at Mau A, northern Vietnam. We ask how flake shape correlates with artefact size and reduction stage. We present a method that uses sets of basic linear measurements of artefacts and converts these into coordinates for shape landmarks. Our approach exhibits a sensitivity to morphological variation not seen with traditional linear measurements, and can be regarded a method for more usefully employing existing linear measurement data in the study of stone tool morphometrics.
 
 ## Excavations at Mau A
 
-Mau A is an open air archaeological site located on the banks above 5 m above the Red River in Yen Bai Province, Northern Vietnam, at the confluence of a small stream entering the river. Excavations were conducted in 2015 by a collaboration including researchers from the University of Washington, the Yen Bai Provincial Museum, the Institute of Archaeology in Hanoi, and the Vietnam National University - Social Sciences and Humanities University. An area of 2 x 2 m was excavated in 13 units of ten centimeters deep, through dense silty clay deposits to a depth of about 1.3 m below the surface. Subtle changes in stratigraphy indicated a slightly sloping deposit with four layers, consistent with reports of excavations in this location in the 1980s. A small amount of plastic and modern ceramics were found in the uppermost 0.1 m of deposit. The most striking feature identified during our excavations was the third layer, which is distinctive as very dense layer of flaked stone artefacts at about 0.6-1.1 m below the surface. No other features were identified during excavation.
+Mau A is an open air archaeological site located on the banks 5 m above the Red River in Yen Bai Province, Northern Vietnam, at the confluence of a small stream entering the river [@fig-map]. Excavations were conducted in 2015 by a collaboration including researchers from the University of Washington, the Yen Bai Provincial Museum, the Institute of Archaeology in Hanoi, and the Vietnam National University - Social Sciences and Humanities. We resurveyed the site location in 2022 and found that the excavation area had been built over by houses. An area of 2 x 2 m was excavated in 13 units of ten centimeters deep, through dense silty clay deposits to a depth of about 1.3 m below the surface. Subtle changes in stratigraphy indicated a slightly sloping deposit with four layers [@fig-section], consistent with reports of excavations in this location in the 1980s. The four layers were identified by the type and amount of artefacts present in each. A small amount of plastic and modern ceramics were found in the uppermost 0.1 m of deposit, we identified this is the first layer. Below this was a layer where ceramics and plastics were absent, and a low density of flaked stone artefacts were observed. The most striking feature identified during our excavations was the third layer, which was distinctive as very dense layer of flaked stone artefacts at about 0.6-1.1 m below the surface. No other features were identified during excavation. Below the third layer was sterile deposit to the maximum depth of the excavation at 1.3m. The excavation stopped due to time limitations, bedrock was not encountered.
 
-This dense lithic layer contained the majority of stone artefacts recovered from the site. The chaîne opératoire of Mau A lithic technology is composed of unifacial shaping on long cobbles to produce sumatraloids (sumatralith-like pieces). The chaîne opératoire also involved the shaping of thick ovoid cobbles for the production of choppers or chopping-tools and half-cobbles (longitudinally split) that are shaped into tools with transverse cutting edges. Flake scar surfaces and edges are fresh and unweathered, indicating *in situ* production and limited post-depositional movement. While previous work has claimed the Mau A assemblage is Son Vian (a precurser to Hoabinhian technology, characterised by unifacial flaking of blocky, cubic cobbles)
+```{r}
+#| label: fig-map
+#| fig-cap: "Site plan of the Mau A excavation. The lower panel on the right shows the regional context in Souteast Asia. The area of the upper panel is indicated by the red rectangle. The upper panel shows the topography and rivers of northern Vietnam, indicating the location of Yen Bai, the town where the site is located, and Hanoi, the nearest large city. Topographic map of Vietnam created by Sadalmelik with GMT from publicly released GLOBE data, distributed under a CC0 license."
 
-<!-- BM: need to cite The Oxford Handbook of the Archaeology and Anthropology of Hunter-Gatherers, Ha Van Tan 1997, and the Proceedings of the Prehistoric Society -->
+knitr::include_graphics(here::here("analysis/figures/plan-and-section-drawings/Mau_A_plan.png"))
 
-Four radiocarbon ages were obtained from isolated charcoal fragments in the deposit. The charcoal was sampled to bracket the upper and lower boundaries of the dense lithic layer. <!-- add calibrated age numbers here --> The ages indicate a rapid accumulation process for this layer at the terminal Pleistocene.
+# Note on how I made this figure: the site plan was taken from field measurements. The regional map was from wikipedia, and the topo map also from WP. I used Inkscape to combine them and clip them to a good fit
+```
 
-<!-- BM: add a paragraph on MH's pollen analysis to indicate local palaeoenvironment, and add her as co-author-->
+
+```{r}
+#| label: fig-section
+#| fig-cap: "Section drawing of the Mau A excavation. The lower panel shows the south and west walls of the excavation. All objects in the section are rocks. The locations of the four radiocarbon samples are shown by their sample IDs. Upper left: excavation in progress by students from the Vietnam National University and the University of Washington. Upper right: photograph of the west wall of the excavation."
+
+knitr::include_graphics(here::here("analysis/figures/plan-and-section-drawings/Mau_A_section.png"))
+
+# Note on how I made this figure: the field drawings were imported into Inkscape, then traced.
+```
+
+This dense lithic layer contained the majority of stone artefacts recovered from the site. In brief, the *chaîne opératoire* of Mau A lithic technology began with the aquisitions of ovoid river cobbles from the banks of the Red River. This was followed by unifacial shaping on the long sides of flat ovoid cobbles to produce sumatraloids (sumatralith-like pieces). A second sequence, operating in parallel, involved the shaping of thick, blocky ovoid cobbles for the production of choppers or chopping-tools. Finally, we observed a third sequence resulting in the production of longitudinally split half-cobbles. These split cobbles were further shaped into tools with transverse cutting edges. Overall, the flake present scar surfaces and edges that are fresh and unweathered, with no concretions, indicating *in situ* production and limited post-depositional movement. Flakes are mostly made from quartzite, unretouched, complete, small, thin, and lacking dorsal cortex.
+
+
+
+## Chronological and Environmental Context
+
+Four radiocarbon ages were obtained from isolated charcoal fragments in the deposit, due to the absence of features such as hearths. The charcoal was sampled to bracket the upper and lower boundaries of the dense lithic layer. The ages indicate a rapid accumulation process for this layer at the terminal Pleistocene. The overlap of all of the highest density ranges for each of the four ages in @fig-radiocarbon-ages further shows that these ages are approximately equivalent. Consequently, we treat the lithic assemblage as effectively representing a single event of lithic production and discard and we do not investigate change over time at this site.
+
+The radiocabon ages at Mau A situate human occupation in the Bølling-Allerød interstadial (14,321–12,824 years before present), globally a period of warmer conditions. Isotope analysis of a speleothem collected from Hoa Huong cave, central Vietnam, indicates a lengthy dry period spanning the Last Glacial Maximum (c. 20 ka) followed by an abrupt shift to wetter conditions at onset of the Bølling-Allerød interstadial at \~14 ka and persisting into the Holocene [@pattersonGlacialChangesSea2023].
+
+Analysis of pollen from Mau A show results that are broadly consistent with this global and regional situation of wetter conditions. Twenty-three sediment samples were collected from square B1 and processed to extract pollen and spores [@sonLithicTechnologyLate2020]. We found a low concentration of pollen and spores, with arboreal pollen dominant (56%) represented by Poaceae, Typha sp.; Amaranthaceae; Compositae and Cyperaceae. Arboreal pollen (17%) included Pinus sp.; Fagaceae; Magnoliaceae, and fern spores is 27%. Below 75cm we did not found any arboreal pollen, but in contrast, non-arboreal taxa were found throughout, e.g. Poaceae and Compositae. Because of the low pollen concentration, it is difficult to discuss the local environmental context of the site, there is only one signal of wet condition based on the appearance of Typha sp. pollen at 5-30 cm and 50-65 cm below the surface (Fig 4.8-4.9). Overall the pollen data suggest that this location was subject to relatively wet conditions.
+
+Palaeoshoreline reconstructions indicate that current sea levels were established at around 12 ka [@duongHolocenePaleoshorelineChanges2020]. At the time Mau A was occupied, sea levels may have been up to 70m lower than present [@funabikiHoloceneDeltaPlain2007]. <!-- Duong to add some text here about what this means for river levels at Mau A -->
+
+```{r}
+#| label: fig-radiocarbon-ages
+#| fig-cap: "Radiocabon ages for Mau A, showing the probability density distribution of individual calibrated dates as ridgeplots. The order of the ages on the y-axis follows the depths that the samples were collected from. The red lines below each distribution indicte the highest density age range (94% for all except 57% for A1-2-6). Full details of the radiocarbon ages can be found in the research compendium."
+
+library(tidyverse)
+
+c14_ages <- 
+read_csv(here::here("analysis/data/derived_data/mau-a-radiocarbon-ages.csv")) %>% 
+  mutate(c14age = `Radiocarbon age BP`,
+         c14std =  `Radiocarbon age error`,
+         prov = str_remove(paste0(Square, "-", Level), ", CH 1|, CH 2")) %>% 
+  mutate(prov = factor(prov, 
+                          levels = c("B1-2-10",
+                                     "A1-2-10",
+                                     "B1-1-6",
+                                     "A1-2-6")))
+
+library(c14bazAAR)
+ rrtools:::quietly( # supress the progress bar
+c14_ages_clean_df_list <- 
+c14_ages %>% 
+  as.c14_date_list() %>% 
+  c14bazAAR::calibrate(choices = c("calprobdistr", "calrange"))
+)
+
+c14_ages_clean_df_list_calprobdistr <- 
+c14_ages_clean_df_list %>% 
+  unnest("calprobdistr")
+
+c14_ages_clean_df_list_calrange <- 
+ c14_ages_clean_df_list %>% 
+  unnest("calrange") %>% 
+  group_by(prov) %>% 
+  filter(dens == max(dens))
+
+library(ggridges)
+
+fig_c14_calibrated <- 
+ggplot(c14_ages_clean_df_list_calprobdistr) +
+  geom_ridgeline(aes(x = -calage + 1950,
+                     y  = prov,
+                     height = density,
+                     scale = 100)) +
+  geom_linerange(data = c14_ages_clean_df_list_calrange,
+                 aes(xmin = -(from - 1950),
+                     xmax = -(to - 1950),
+                     y = prov),
+                 colour = "red",
+                 linewidth = 1) +
+  scale_x_continuous(name = "Age (cal BC)",
+                     sec.axis = sec_axis(~abs(. - 1950),
+                                         name = "Age (cal BP)")) +
+  theme_minimal(base_size = 10) 
+
+ggsave(filename = here::here("analysis/figures/fig-c14-calibrated.png"),
+       plot = fig_c14_calibrated,
+       bg = "white",
+       h = 2, 
+       w = 4)
+
+knitr::include_graphics(here::here("analysis/figures/fig-c14-calibrated.png"))
+```
 
 # Methods
 
